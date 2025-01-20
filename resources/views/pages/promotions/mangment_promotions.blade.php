@@ -6,6 +6,9 @@
 <link href="{{URL::asset('assets/plugins/datatable/css/jquery.dataTables.min.css')}}" rel="stylesheet">
 <link href="{{URL::asset('assets/plugins/datatable/css/responsive.dataTables.min.css')}}" rel="stylesheet">
 <link href="{{URL::asset('assets/plugins/select2/css/select2.min.css')}}" rel="stylesheet">
+<!-- إضافة Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 @endsection
 @section('page-header')
 <!-- breadcrumb -->
@@ -17,11 +20,15 @@
         </div>
     </div>
 </div>
+
 <div class="row row-sm">
     <div class="col-xl-12">
         <div class="card mt-5">
             <div class="card-header pb-0">
                 <p class="tx-12 tx-gray-500 mb-2">ترقيه الطلاب <a href="#">تعرف على المزيد</a></p>
+                <div class=" mt-3 mb-3" >
+                <button type="button" class="btn  btn-danger" data-toggle="modal" data-target="#exampleModal">  ترجع  الكل   </button>
+                </div>
                 <div class="table-responsive"> 
                     <table class="table text-md-nowrap table-secondary table table-hover" id="example1">
                         <thead class="table-info text-center">
@@ -36,6 +43,7 @@
                                 <th class="alert-success"><h6>الأقسام الدراسية المنقول إليها</h6></th>
                                 <th><h6>العام الدراسي</h6></th>
                                 <th class="alert-success"><h6>العام الدراسي المنقول إليها</h6></th>
+                                <th class="alert-success"><h6>   العمليات  </h6></th>
                             </tr>
                         </thead>
                         <tbody class="table-info text-center">
@@ -51,7 +59,44 @@
                                     <td class="text-danger">{{$promotion->toSectian->nameSectian}}</td>
                                     <td class="text-primary">{{$promotion->academic_year}}</td>
                                     <td class="text-danger">{{$promotion->new_academic_year}}</td>
+                                    <td > 
+                                   
+                                    <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#exampleModalCenter{{$promotion->student_id}}">
+                                    <i class="fas fa-arrow-rotate-left"></i></button>
+
+                                    </td>
                                 </tr>
+
+
+                                                                
+                                <!-- Modal   الترجع  -->
+                                <div class="modal fade" id="exampleModalCenter{{$promotion->student_id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLongTitle">  عملية الترجع   </h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                    <form action="{{route('promotion.destroy')}}" method="POST" >
+                                    @csrf
+                                    @method('DELETE')
+                                    <h3>هل انت متاكد من عملية الترجع ؟</h3><br>
+
+                                    <input type="hidden" name="id" value="{{$promotion->student_id}}"   >
+                                    <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal"> الاغلاق </button>
+                                    <button type="submit" class="btn btn-danger">  التاكيد </button>
+                                </div>
+                                    </form>
+                                    </div>
+                                    
+                                    </div>
+                                </div>
+                                </div>
+
                             @endforeach
                         </tbody>
                     </table>
@@ -60,6 +105,36 @@
         </div>
     </div>
 </div>
+
+
+<!-- Modal  ترجع  الكل  -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">  ترجع  الكل  </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+         <form action="{{route('promotion.destroy')}}" method="POST" >
+           @csrf
+           @method('DELETE')
+           <h3>هل انت متاكد من عملية الترجع ؟</h3><br>
+
+           <input type="hidden" name="number" value="1" >
+           <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal"> الاغلاق </button>
+        <button type="submit" class="btn btn-danger">  التاكيد </button>
+      </div>
+         </form>
+      </div>
+       
+    </div>
+  </div>
+</div>
+
 @endsection
 
 @section('js')

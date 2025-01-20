@@ -6,4 +6,5 @@ namespace App\Repositories;
     public function getAllPromotion();
     public function storagPromotion($request);
     public function createPromotion();
+    public function destroyPromotion($request);
 }

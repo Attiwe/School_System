@@ -101,6 +101,7 @@ Route::controller(PromotionController::class)->middleware('auth')->prefix('promo
     Route::get('/','index')->name('promotion.index');
     Route::post('/store','store')->name('promotion.store');
     Route::get('/create','create')->name('promotion.create');
+    Route::delete('/destroy','destroy')->name('promotion.destroy');
 });
 
 
