@@ -17,11 +17,15 @@
         </div>
     </div>
 </div>
+
 <div class="row row-sm">
     <div class="col-xl-12">
         <div class="card mt-5">
             <div class="card-header pb-0">
                 <p class="tx-12 tx-gray-500 mb-2">ترقيه الطلاب <a href="#">تعرف على المزيد</a></p>
+                <div class=" mt-3 mb-3" >
+                <button type="button" class="btn  btn-danger" data-toggle="modal" data-target="#exampleModal">  ترجع  الكل   </button>
+                </div>
                 <div class="table-responsive"> 
                     <table class="table text-md-nowrap table-secondary table table-hover" id="example1">
                         <thead class="table-info text-center">
@@ -60,6 +64,36 @@
         </div>
     </div>
 </div>
+
+
+<!-- Modal  ترجع  الكل  -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">  ترجع  الكل  </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+         <form action="{{route('promotion.destroy')}}" method="POST" >
+           @csrf
+           @method('DELETE')
+           <h3>هل انت متاكد من عملية الترجع ؟</h3><br>
+
+           <input type="hidden" name="number" value="1" >
+           <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal"> الاغلاق </button>
+        <button type="submit" class="btn btn-danger">  التاكيد </button>
+      </div>
+         </form>
+      </div>
+       
+    </div>
+  </div>
+</div>
+
 @endsection
 
 @section('js')
