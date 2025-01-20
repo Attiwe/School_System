@@ -1,0 +1,84 @@
+ @extends('layouts.master')
+@section('css')
+<link href="{{URL::asset('assets/plugins/datatable/css/dataTables.bootstrap4.min.css')}}" rel="stylesheet" />
+<link href="{{URL::asset('assets/plugins/datatable/css/buttons.bootstrap4.min.css')}}" rel="stylesheet">
+<link href="{{URL::asset('assets/plugins/datatable/css/responsive.bootstrap4.min.css')}}" rel="stylesheet" />
+<link href="{{URL::asset('assets/plugins/datatable/css/jquery.dataTables.min.css')}}" rel="stylesheet">
+<link href="{{URL::asset('assets/plugins/datatable/css/responsive.dataTables.min.css')}}" rel="stylesheet">
+<link href="{{URL::asset('assets/plugins/select2/css/select2.min.css')}}" rel="stylesheet">
+@endsection
+@section('page-header')
+<!-- breadcrumb -->
+<div class="breadcrumb-header justify-content-between">
+    <div class="my-auto">
+        <div class="d-flex">
+            <h4 class="content-title mb-0 my-auto">Pages</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/
+                Empty</span>
+        </div>
+    </div>
+</div>
+<div class="row row-sm">
+    <div class="col-xl-12">
+        <div class="card mt-5">
+            <div class="card-header pb-0">
+                <p class="tx-12 tx-gray-500 mb-2">ترقيه الطلاب <a href="#">تعرف على المزيد</a></p>
+                <div class="table-responsive"> 
+                    <table class="table text-md-nowrap table-secondary table table-hover" id="example1">
+                        <thead class="table-info text-center">
+                            <tr class="font-weight-bold">
+                                <th><h6>#</h6></th>
+                                <th class="alert-success"><h6>اسم الطالب</h6></th>
+                                <th><h6>المرحلة الدراسية</h6></th>
+                                <th class="alert-success"><h6>المرحلة الدراسية المنقول إليها</h6></th>
+                                <th><h6>الصف الدراسي</h6></th>
+                                <th class="alert-success"><h6>الصف الدراسي المنقول إليها</h6></th>
+                                <th><h6>الأقسام الدراسية</h6></th>
+                                <th class="alert-success"><h6>الأقسام الدراسية المنقول إليها</h6></th>
+                                <th><h6>العام الدراسي</h6></th>
+                                <th class="alert-success"><h6>العام الدراسي المنقول إليها</h6></th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-info text-center">
+                            @foreach ($promotions as $promotion)
+                                <tr class="font-weight-bold">
+                                    <td class="text-info">{{$loop->iteration}}</td>
+                                    <td class="text-secondary">{{$promotion->student->name}}</td>
+                                    <td class="text-primary">{{$promotion->fromGrade->name}}</td>
+                                    <td class="text-danger">{{$promotion->toGrade->name}}</td>
+                                    <td class="text-primary">{{$promotion->fromClass->nameClass}}</td>
+                                    <td class="text-danger">{{$promotion->toClass->nameClass}}</td>
+                                    <td class="text-primary">{{$promotion->fromSectian->nameSectian}}</td>
+                                    <td class="text-danger">{{$promotion->toSectian->nameSectian}}</td>
+                                    <td class="text-primary">{{$promotion->academic_year}}</td>
+                                    <td class="text-danger">{{$promotion->new_academic_year}}</td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div> <!-- End of table-responsive -->
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
+
+@section('js')
+<script src="{{URL::asset('assets/plugins/datatable/js/jquery.dataTables.min.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatable/js/dataTables.dataTables.min.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatable/js/dataTables.responsive.min.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatable/js/responsive.dataTables.min.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatable/js/jquery.dataTables.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatable/js/dataTables.bootstrap4.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatable/js/dataTables.buttons.min.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatable/js/buttons.bootstrap4.min.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatable/js/jszip.min.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatable/js/pdfmake.min.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatable/js/vfs_fonts.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatable/js/buttons.html5.min.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatable/js/buttons.print.min.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatable/js/buttons.colVis.min.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatable/js/dataTables.responsive.min.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/datatable/js/responsive.bootstrap4.min.js')}}"></script>
+<!--Internal  Datatable js -->
+<script src="{{URL::asset('assets/js/table-data.js')}}"></script>
+@endsection
