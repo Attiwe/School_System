@@ -89,6 +89,7 @@
 
 				</ul>
 			</li>
+			
 			<li class="slide">
 				<a class="side-menu__item" data-toggle="slide" href="{{ url('/' . $page = '#') }}"><svg
 						xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24">
@@ -102,9 +103,12 @@
 					<li><a  wire:navigate  class="slide-item" href="{{ route('student.index') }}"> اضاقه الطلاب</a></li>
 					<li><a  wire:navigate  class="slide-item" href= "{{route('promotion.index')}}"> ترقيه الطلاب</a></li>
 					<li><a  wire:navigate  class="slide-item" href= "{{route('promotion.create')}}"> اداره ترقيه الطلاب</a></li>
+					<li><a  wire:navigate  class="slide-item" href= "{{route('graduate.index')}}">    الطلاب المتخرجين  </a></li>
 					 
 				</ul>
 			</li>
+
+
 			<li class="slide">
 				<a class="side-menu__item" data-toggle="slide" href="{{ url('/' . $page = '#') }}"><svg
 						xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24">

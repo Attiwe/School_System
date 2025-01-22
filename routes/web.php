@@ -3,6 +3,7 @@
 use App\Http\Controllers\AppointmentsController;
 use App\Http\Controllers\ClassRomsController;
 use App\Http\Controllers\GradeController;
+use App\Http\Controllers\GraduateController;
 use App\Http\Controllers\MyParentsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PromotionController;
@@ -97,11 +98,15 @@ Route::controller(StudentController::class)->middleware('auth')->prefix('student
 });
 
 Route::controller(PromotionController::class)->middleware('auth')->prefix('promotion')->group(function(){
-
     Route::get('/','index')->name('promotion.index');
     Route::post('/store','store')->name('promotion.store');
     Route::get('/create','create')->name('promotion.create');
     Route::delete('/destroy','destroy')->name('promotion.destroy');
+});
+
+Route::controller(GraduateController::class)->middleware('auth')->prefix('graduate')->group(function(){
+
+    Route::get('/','index')->name('graduate.index');
 });
 
 

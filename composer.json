@@ -9,7 +9,9 @@
         "laravel/framework": "^11.9",
         "laravel/tinker": "^2.9",
         "livewire/livewire": "^3.5",
-        "yoeunes/toastr": "^3.1"
+        "yoeune/toastr": "^3.1"
+
+        //  "yoeunes/toastr": "^3.1"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",

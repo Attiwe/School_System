@@ -83,17 +83,17 @@ class StudentRepositories implements StudentRepositoryInterface
 
     public function updateStudent($request)
     {
-          dd($request->all());
-        try {
+        //   dd($request->all());
+        // try {
             $student = Student::findOrFail($request->id);
             $data = $request->only(['name', 'email', 'academic_year', 'date_birth', 'nationalitie_id', 'gender', 'blood_id', 'grade_id', 'class_id', 'section_id', 'parents_id']);
             $student->update($data);
             toastr()->success('تمت الاضافه', ['positionClass' => 'toast-top-left']);
             return redirect()->route('student.show');
 
-        } catch (\Exception $e) {
-            return redirect()->back()->withErrors(['error' => 'حدث خطأ أثناء تحميل بيانات الطالب: ' . $e->getMessage()]);
-        }
+        // } catch (\Exception $e) {
+        //     return redirect()->back()->withErrors(['error' => 'حدث خطأ أثناء تحميل بيانات الطالب: ' . $e->getMessage()]);
+        // }
     }
 
     public function show_Student($id)

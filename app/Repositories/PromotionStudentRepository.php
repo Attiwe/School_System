@@ -77,20 +77,22 @@ class PromotionStudentRepository implements PromotionStudentRepositoriesInterfac
 
         return view('pages.promotions.mangment_promotions', compact('promotions'));
     }
+
+
+
     public function destroyPromotion($request)
     {
-
         DB::beginTransaction();
         try {
-
             if ($request->number == 1) {
                 $promotions = Promotion::all();
+
                 if ($promotions->isEmpty()) {
                     toastr()->error('لا يوجد طلابه');
                     return redirect()->back();
                 }
-                
-                Promotion::whereIn('id',$promotions->pluck('id'))->each(function($promotion){
+
+                Promotion::whereIn('id', $promotions->pluck('id'))->each(function ($promotion) {
                     Student::updateOrCreate(
                         ['id' => $promotion->student_id],
                         [
@@ -101,40 +103,35 @@ class PromotionStudentRepository implements PromotionStudentRepositoriesInterfac
                         ]
                     );
                 });
-                Promotion::whereIn('id',$promotions->pluck('id'))->delete();
- 
-                DB::commit();
+
+                Promotion::whereIn('id', $promotions->pluck('id'))->delete();
+
                 return redirect()->route('student.show');
-
-
             } else {
                 $promotions = Promotion::where('student_id', $request->id)->get();
 
-                Promotion::where('id',$promotions->pluck('id'))->each(function($promotion){
+                Promotion::where('id', $promotions->pluck('id'))->each(function ($promotion) {
                     Student::updateOrCreate(
-                                
-                                [
-                                    'id'=>$promotion->student_id,
-                                    'grade_id' => $promotion->from_grade,
-                                    'class_id' => $promotion->from_class,
-                                    'section_id' => $promotion->from_sectian,
-                                    'academic_year' => $promotion->academic_year,
-                                ]
-                            );
+                         [
+                            'id'=>$promotion->student_id,
+                            'grade_id' => $promotion->from_grade,
+                            'class_id' => $promotion->from_class,
+                            'section_id' => $promotion->from_sectian,
+                            'academic_year' => $promotion->academic_year,
+                        ]
+                    );
                 });
-                Promotion::where('id',$promotions->pluck(('id')))->delete();
-                
+
+                Promotion::whereIn('id', $promotions->pluck('id'))->delete();
+
+                DB::commit();
                 return redirect()->back();
-
-
             }
         } catch (\Exception $e) {
             DB::rollBack();
             return redirect()->back()->withErrors([$e->getMessage()]);
         }
     }
-
-
 
 
 }
