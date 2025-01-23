@@ -62,7 +62,7 @@
                                     <td > 
                                    
                                     <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#exampleModalCenter{{$promotion->student_id}}">
-                                    <i class="fas fa-arrow-rotate-left"></i></button>
+                                    <i class="  fas fa-arrow-rotate-left"></i></button>
 
                                     </td>
                                 </tr>

@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('gender');
             $table->date('date_birth');
             $table->string('academic_year');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
