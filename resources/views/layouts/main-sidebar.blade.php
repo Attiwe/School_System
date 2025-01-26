@@ -154,7 +154,7 @@
 						<circle cx="12" cy="9" r="2.5" />
 					</svg><span class="side-menu__label"> الحسابات </span><i class="angle fe fe-chevron-down"></i></a>
 				<ul class="slide-menu">
-					<li><a class="slide-item" href="{{route('fass.index') }}"> الرسوم الدرسيه  </a></li>
+					<li><a class="slide-item" href="{{route('fees.index') }}"> الرسوم الدرسيه  </a></li>
 					<li><a class="slide-item" href="{{ url('/' . $page = 'map-vector') }}">Vector Maps</a></li>
 				</ul>
 			</li>

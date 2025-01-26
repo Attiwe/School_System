@@ -112,11 +112,17 @@ Route::controller(GraduateController::class)->middleware('auth')->prefix('gradua
     Route::get('/create', 'create')->name('graduate.create');
     Route::post('return/{id}', 'returnGraduate')->name('graduate.returnGraduate');
     Route::delete('/destroy/{delete}', 'destroy')->name('graduate.destroy');
-
+    
 });
-Route::controller(FeesController::class)->middleware('auth')->prefix('fass')->group(function(){
- 
-    Route::get('/','index')->name('fass.index');
+Route::controller(FeesController::class)->middleware('auth')->prefix('fees')->group(function(){
+    
+    Route::get('/','index')->name('fees.index');
+    Route::get('/create','create')->name('fees.create');
+    Route::post('/store','store')->name('fees.store');
+    Route::get('/edit/{edit}', 'edit')->name('fees.edit');
+    Route::put('/update/{id}', 'update')->name('fees.update');
+    Route::get('/show/{id}','show')->name('fees.show');
+    Route::delete('/destroy/{delete}', 'destroy')->name('fees.destroy');
 });
 
 
