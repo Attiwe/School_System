@@ -25,13 +25,14 @@ class FeesRequest extends FormRequest
         return [
             'title' => 'required|max:255',
             'amount' => 'required|numeric',
-            'grade_id' => [
-                'required',
-                Rule::unique(  'fees')->where(function ($query) {
-                    return $query->where('class_id', $this->class_id)
-                        ->where('year', $this->year);
-                }),
-            ],
+            'grade_id'=>'required',
+            // 'grade_id' => [
+            //     'required',
+            //     Rule::unique(  'fees')->where(function ($query) {
+            //         return $query->where('class_id', $this->class_id)
+            //             ->where('year', $this->year);
+            //     }),
+            // ],
             'class_id' => 'required',
             'year' => 'required',
             'desc' => 'nullable',

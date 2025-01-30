@@ -20,23 +20,23 @@ class StudentRequest extends FormRequest
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
     public function rules(): array
-    {
-        return [
-            'grade_id'=>'required',
-            'class_id'=>'required',
-            'section_id'=>'required',
-            'name'=>'required|string',
-            'academic_year'=>'required',
-            'date_birth'=>'required|date',
-            'gender'=>'required',
-            'email' => 'required|email|unique:students,email,' . $this->id . '|max:255',
-            'parents_id'=>'nullable',
-            'nationalitie_id'=>'nullable',
-            'blood_id'=>'nullable',
-            'password' => 'required|min:6|max:50',   
-                  
-        ];
-    } 
+{
+    return [
+        'grade_id'=>'required',
+        'class_id'=>'required',
+        'section_id'=>'required',
+        'name'=>'required|string',
+        'academic_year'=>'required',
+        'date_birth'=>'required|date',
+        'gender'=>'required',
+        'email' => 'required|email',   
+        'parents_id'=>'nullable',
+        'nationalitie_id'=>'nullable',
+        'blood_id'=>'nullable',
+        'password' => 'required|min:6|max:50',   
+    ];
+} 
+
     public function messages(): array
     {
     return [
@@ -51,8 +51,7 @@ class StudentRequest extends FormRequest
         'gender.required' => 'الجنس مطلوب.',
         'email.required' => 'البريد الإلكتروني مطلوب.',
         'email.email' => 'البريد الإلكتروني يجب أن يكون صالحاً.',
-        'email.max' => 'البريد الإلكتروني يجب ألا يتجاوز 255 حرفاً.',
-        'email.unique' => 'البريد الإلكتروني  موجود  .',
+        
         'password.required' => 'كلمة المرور مطلوبة.',
         'password.min' => 'كلمة المرور يجب أن تكون على الأقل 6 أحرف.',
         'password.max' => 'كلمة المرور يجب ألا تتجاوز 50 حرفاً.',

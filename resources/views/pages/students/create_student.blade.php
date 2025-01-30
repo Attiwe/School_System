@@ -16,6 +16,13 @@
     </div>
 </div>
 
+@if (!empty($catchError))
+        <div class="alert alert-danger" id="error-alert">
+            <button type="button" class="close" data-dismiss="alert">x</button>
+            {{ $catchError }}
+        </div>
+    @endif
+
 <div class="row row-sm">
     <div class="col-xl-12">
         <div class="d-flex align-items-center justify-content-between mb-3">

@@ -11,13 +11,26 @@
     </div>
 </div>
 
- <div class="container mt-5 card">
-    <div class="card-body">
-         <div class="card-header bg-success text-white text-center">
-            <h4>نموذج تسجيل البيانات الطلاب</h4>
-        </div>
+
+<div class="row row-sm">  
+         <div class="col-xl-12">
+         <div class="d-flex align-items-center justify-content-between mb-3">
+    
+            </div>
+            <div class="card mt-5">
+                
+                <div class="col-xl-12">
+                    <div class="card-header pb-0">
+                        
+                        <p class="tx-12 tx-gray-500 mb-2">   ترقيه الطلاب  <a href="#">تعرف على المزيد</a></p>
+
+                        <div class="row card">
+                            <div class="card-body">
+                                <div class="table-responsive">
+ 
+ 
+ @foreach ($students as $student )
         <div class="card-body">
-            @foreach ($students as $student )
             
             
             <form action="{{route('student.update',$student->id)}}" method="POST">
@@ -167,9 +180,17 @@
             </form>
             
             @endforeach
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+        
+
  
 <!-- breadcrumb -->
 @endsection

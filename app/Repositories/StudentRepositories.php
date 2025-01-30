@@ -14,6 +14,7 @@ use Storage;
 
 class StudentRepositories implements StudentRepositoryInterface
 {
+    public $catchError;
     public function showStudent()
     {
         $students = Student::query()->latest()->get();
@@ -29,42 +30,54 @@ class StudentRepositories implements StudentRepositoryInterface
     }
 
     public function storeStudent($request)
-        {
-            // dd($request->all());
-            DB::beginTransaction();
-            try {
-                $data = $request->validated();
-                // $data['password'] ;
-                if (!$data) {
-                    return toastr()->error('the data is Not valid');
+    {
+        //  dd($request->all());
+        DB::beginTransaction();
+        try {
+            $request->validated();
+
+            $student = new Student();
+            $student->name = $request->name;
+            $student->email = $request->email;
+            $student->password = $request->password;
+            $student->academic_year = $request->academic_year;
+            $student->date_birth = $request->date_birth;
+            $student->nationalitie_id = $request->nationalitie_id;
+            $student->gender = $request->gender;
+            $student->blood_id = $request->blood_id;
+            $student->grade_id = $request->grade_id;
+            $student->class_id = $request->class_id;
+            $student->section_id = $request->section_id;
+            $student->parents_id = $request->parents_id;
+            $student->save();
+
+
+            if ($request->hasfile('photos')) {
+                if (count($request->photos) > 5) {
+                    toastr()->message('لا يمكن رفع أكثر من  5 صور.');
+
+                    return redirect()->back();
                 }
-                $student = Student::create($data);
+                foreach ($request->file('photos') as $file) {
 
-                if ($request->hasfile('photos')) {
-                    if (count($request->photos) > 5) {
-                        toastr()->message('لا يمكن رفع أكثر من  5 صور.');
+                    $fileName = $file->getClientOriginalName();
+                    $file->storeAs('attachments/students/' . $request->name, $file->getClientOriginalName(), $disks = 'student_Attachments');
 
-                        return redirect()->back();
-                    }
-                    foreach ($request->file('photos') as $file) {
-
-                        $fileName = $file->getClientOriginalName();
-                        $file->storeAs('attachments/students/' . $request->name, $file->getClientOriginalName(), $disks = 'student_Attachments');
-
-                        $student->images()->create([
-                            'fileName' => $fileName,
-                            'imageable_id' => $student->id
-                        ]);
-                    }
+                    $student->images()->create([
+                        'fileName' => $fileName,
+                        'imageable_id' => $student->id
+                    ]);
                 }
-                DB::commit();    
-                toastr()->success('تمت إضافة الطالب ' . $student->name . ' بنجاح', ['positionClass' => 'toast-top-left']);
-
-                return redirect()->route('student.show');
-            } catch (\Exception $e) {
-                DB::rollBack();
-                return redirect()->back()->withErrors(['error' => $e->getMessage()]);
             }
+            DB::commit();
+            // toastr()->success('تمت إضافة الطالب ' . $student->name . ' بنجاح', ['positionClass' => 'toast-top-left']);
+
+            return redirect()->route('student.show');
+        } catch (\Exception $e) {
+            DB::rollBack();
+ 
+            return redirect()->back()->catchError = $e->getMessage();
+        }
     }
 
     public function editStudent($id)
@@ -88,7 +101,7 @@ class StudentRepositories implements StudentRepositoryInterface
             $student = Student::findOrFail($request->id);
             $data = $request->only(['name', 'email', 'academic_year', 'date_birth', 'nationalitie_id', 'gender', 'blood_id', 'grade_id', 'class_id', 'section_id', 'parents_id']);
             $student->update($data);
-            toastr()->success('تمت الاضافه', ['positionClass' => 'toast-top-left']);
+            // toastr()->success('تمت الاضافه', ['positionClass' => 'toast-top-left']);
             return redirect()->route('student.show');
 
         } catch (\Exception $e) {

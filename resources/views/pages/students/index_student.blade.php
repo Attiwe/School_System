@@ -62,14 +62,28 @@
                                     <td class="text-primary"> {{$student->nationalitieStudent->name}}</td>
                                     <td class="text-primary">
 
-                                        <a class="btn btn-outline-success btn-sm"
-                                            href="{{route('student.edit', $student->id)}}"><i class="fas fa-edit"></i></a>
-                                        <button type="button" class="btn btn-outline-danger btn-sm" data-toggle="modal"
-                                            data-target="#exampleModalCenter{{$student->id}}"> <i
-                                                class="fas fa-trash-alt"></i> </button>
-                                        <a href="{{route('student.show_student', $student->id)}}"
-                                            class="btn btn-outline-warning btn-sm" role="button" aria-pressed="true"><i
-                                                class="far fa-eye"></i></a>
+                                    <div class="dropdown show">
+                                <a class="btn btn-outline-primary btn-sm dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fa-solid fa-cogs"></i> العمليات
+                                </a>
+
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item text-success" href="{{route('student.edit', $student->id)}}">
+                                        <i class="fas fa-edit"></i> تعديل
+                                    </a>
+                                    <button class="dropdown-item text-danger" type="button" data-toggle="modal" data-target="#exampleModalCenter{{$student->id}}">
+                                        <i class="fas fa-trash-alt"></i> حذف
+                                    </button>
+                                    <a class="dropdown-item text-warning" href="{{route('student.show_student', $student->id)}}">
+                                        <i class="far fa-eye"></i> عرض
+                                    </a>
+                                    <a class="dropdown-item text-primary" href="{{route( 'feesInvoice.show',$student->id)}}">
+                                        <i class="fas fa-file-invoice-dollar"></i> إضافة فاتورة رسوم
+                                    </a>
+                                </div>
+                            </div>
+                                
                                     </td>
 
                                 </tr>

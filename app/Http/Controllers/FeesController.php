@@ -49,4 +49,7 @@ class FeesController extends Controller
     {
         return $this->Fees->destroyFees($request);  
     }
+
+    
+
 }

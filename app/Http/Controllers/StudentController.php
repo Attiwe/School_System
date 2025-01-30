@@ -32,9 +32,9 @@ class StudentController extends Controller
      {
           return $this->Student->editStudent($id);
      }
-     public function update(StudentRequest $request)
+     public function update( Request $request)
      {
-          return $this->Student->updateStudent($request);
+           return $this->Student->updateStudent($request);
      }
      public function show_student($id)
      {

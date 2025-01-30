@@ -3,6 +3,7 @@
 use App\Http\Controllers\AppointmentsController;
 use App\Http\Controllers\ClassRomsController;
 use App\Http\Controllers\FeesController;
+use App\Http\Controllers\FeesInvoiceController;
 use App\Http\Controllers\GradeController;
 use App\Http\Controllers\GraduateController;
 use App\Http\Controllers\MyParentsController;
@@ -11,6 +12,7 @@ use App\Http\Controllers\PromotionController;
 use App\Http\Controllers\SectionsController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TeacherController;
+use App\Models\FeesInvoice;
 use Illuminate\Support\Facades\Route;
 
 
@@ -112,17 +114,25 @@ Route::controller(GraduateController::class)->middleware('auth')->prefix('gradua
     Route::get('/create', 'create')->name('graduate.create');
     Route::post('return/{id}', 'returnGraduate')->name('graduate.returnGraduate');
     Route::delete('/destroy/{delete}', 'destroy')->name('graduate.destroy');
-    
+
 });
-Route::controller(FeesController::class)->middleware('auth')->prefix('fees')->group(function(){
-    
-    Route::get('/','index')->name('fees.index');
-    Route::get('/create','create')->name('fees.create');
-    Route::post('/store','store')->name('fees.store');
+Route::controller(FeesController::class)->middleware('auth')->prefix('fees')->group(function () {
+
+    Route::get('/', 'index')->name('fees.index');
+    Route::get('/create', 'create')->name('fees.create');
+    Route::post('/store', 'store')->name('fees.store');
     Route::get('/edit/{edit}', 'edit')->name('fees.edit');
     Route::put('/update/{id}', 'update')->name('fees.update');
-    Route::get('/show/{id}','show')->name('fees.show');
+    Route::get('/show/{id}', 'show')->name('fees.show');
     Route::delete('/destroy/{delete}', 'destroy')->name('fees.destroy');
+
 });
 
+Route::controller(FeesInvoiceController::class)->middleware('auth')->prefix('feesInvoice')->group(function () {
+    Route::get('/', 'index')->name('feesInvoice.index');
+    Route::get('/show/{id}', 'show')->name('feesInvoice.show');
+    Route::post('/store','store')->name('feesInvoice.store');
+    // Route::get('/edit/{edit}', 'edit')->name('feesInvoice.edit');
+    Route::delete('/destroy/{delete}','destroy')->name('feesInvoice.destroy');
+});
 
