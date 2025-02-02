@@ -100,12 +100,20 @@ Route::controller(StudentController::class)->middleware('auth')->prefix('student
     Route::get('/section/{class_id}', 'getSection'); // Ajax for sections
 });
 
-Route::controller(PromotionController::class)->middleware('auth')->prefix('promotion')->group(function () {
-    Route::get('/', 'index')->name('promotion.index');
-    Route::post('/store', 'store')->name('promotion.store');
-    Route::get('/create', 'create')->name('promotion.create');
-    Route::delete('/destroy', 'destroy')->name('promotion.destroy');
-});
+ 
+// Route::controller(PromotionController::class)->middleware('auth')->prefix('promotion')->group(function () {
+//     Route::get('/', 'index')->name('promotion.index');
+//     Route::post('/store', 'store')->name('promotion.store');
+//     Route::get('/create', 'create')->name('promotion.create');
+//     Route::delete('/destroy', 'destroy')->name('promotion.destroy');
+ 
+Route::controller(PromotionController::class)->middleware('auth')->prefix('promotion')->group(function(){
+
+    Route::get('/','index')->name('promotion.index');
+    Route::post('/store','store')->name('promotion.store');
+    Route::get('/create','create')->name('promotion.create');
+    Route::delete('/destroy','destroy')->name('promotion.destroy');
+ });
 
 Route::controller(GraduateController::class)->middleware('auth')->prefix('graduate')->group(function () {
 
