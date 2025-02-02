@@ -9,10 +9,10 @@ use App\Http\Controllers\GraduateController;
 use App\Http\Controllers\MyParentsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PromotionController;
+use App\Http\Controllers\ReceiptStudentController;
 use App\Http\Controllers\SectionsController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TeacherController;
-use App\Models\FeesInvoice;
 use Illuminate\Support\Facades\Route;
 
 
@@ -132,7 +132,14 @@ Route::controller(FeesInvoiceController::class)->middleware('auth')->prefix('fee
     Route::get('/', 'index')->name('feesInvoice.index');
     Route::get('/show/{id}', 'show')->name('feesInvoice.show');
     Route::post('/store','store')->name('feesInvoice.store');
-    // Route::get('/edit/{edit}', 'edit')->name('feesInvoice.edit');
     Route::delete('/destroy/{delete}','destroy')->name('feesInvoice.destroy');
 });
 
+Route::controller(ReceiptStudentController::class)->middleware('auth')->prefix('receipt')->group(function () {
+        
+    Route::get('/','index')->name('receipt.index');
+    Route::get('/show/{id}','show')->name('receipt.show');
+    Route::post('/store','store')->name('receipt.store');
+    Route::delete('/delete/{delete}','destroy')->name('receipt.delete');
+ 
+});

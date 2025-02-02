@@ -20,12 +20,13 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
         
-        //   $this->call(TypeBloods::class);
-        //   $this->call(Nationalities::class);
-        //   $this->call(ReligionsSeeder::class);
-        //   $this->call(Adnim::class);
-        //   $this->call(SpecializationsSeeder::class);
-        //   $this->call(GradeSeeder::class);
+          $this->call(TypeBloods::class);
+          $this->call(Nationalities::class);
+          $this->call(ReligionsSeeder::class);
+          $this->call(Adnim::class);
+          $this->call(SpecializationsSeeder::class);
+          $this->call(GradeSeeder::class);
              $this->call(ClassSeeder::class);
+              $this->call(ParentSeeder::class);
     }
 }

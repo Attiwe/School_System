@@ -53,7 +53,7 @@
 					</svg><span class="side-menu__label"> قائمه المراحل الدرسيه </span><i
 						class="angle fe fe-chevron-down"></i></a>
 				<ul class="slide-menu">
-					<li><a wire:navigate class="slide-item" href="{{route('page.index')}}"> المراحل الدرسيه</a></li>
+					<li><a  class="slide-item" href="{{route('page.index')}}"> المراحل الدرسيه</a></li>
 
 				</ul>
 			</li>
@@ -67,7 +67,7 @@
 					</svg><span class="side-menu__label"> قائمه الصفوف الدوسيه</span><i
 						class="angle fe fe-chevron-down"></i></a>
 				<ul class="slide-menu">
-					<li><a wire:navigate class="slide-item" href="{{ route('class.index')  }}">الصفوف الدرسيه</a></li>
+					<li><a  class="slide-item" href="{{ route('class.index')  }}">الصفوف الدرسيه</a></li>
 				</ul>
 			</li>
 			<li class="slide">
@@ -85,7 +85,7 @@
 						<circle cx="17.5" cy="11.5" r="1.5" />
 					</svg><span class="side-menu__label"> الاقسام</span><i class="angle fe fe-chevron-down"></i></a>
 				<ul class="slide-menu">
-					<li><a wire:navigate class="slide-item" href=" {{route('section.index')}}"> قائمة الاقسام
+					<li><a  class="slide-item" href=" {{route('section.index')}}"> قائمة الاقسام
 							الدرسيه</a></li>
 
 				</ul>
@@ -110,9 +110,9 @@
 
 						</svg><span class="side-menu__label"> <i class="fa-solid fa-graduation-cap"> الطلاب </i> </span>
 					</a>
-					<li><a wire:navigate class="slide-item text-secondary " href="{{ route('student.show') }}"> قائمة
+					<li><a  class="slide-item text-secondary " href="{{ route('student.show') }}"> قائمة
 							الطلاب </a></li>
-					<li><a wire:navigate class="slide-item text-secondary " href="{{ route('student.index') }}"> اضاقه
+					<li><a  class="slide-item text-secondary " href="{{ route('student.index') }}"> اضاقه
 							الطلاب</a></li>
 
 
@@ -124,8 +124,8 @@
 						</svg><span class="side-menu__label"> <i class="fa-solid fa-school"> ترقيه الطلاب </i> </span>
 					</a>
 
-					<li><a wire:navigate class="slide-item  " href="{{route('promotion.index')}}"> ترقيه الطلاب</a></li>
-					<li><a wire:navigate class="slide-item  " href="{{route('promotion.create')}}"> اداره ترقيه
+					<li><a  class="slide-item  " href="{{route('promotion.index')}}"> ترقيه الطلاب</a></li>
+					<li><a  class="slide-item  " href="{{route('promotion.create')}}"> اداره ترقيه
 							الطلاب</a></li>
 				</ul>
 				<ul class="slide-menu">
@@ -134,9 +134,9 @@
 						</svg><span class="side-menu__label"> <i class="fa-solid fa-user-graduate"> الطلاب الخرجين </i>
 						</span> </a>
 
-					<li><a wire:navigate class="slide-item text-secondary " href="{{route('graduate.index')}}"> الطلاب
+					<li><a  class="slide-item text-secondary " href="{{route('graduate.index')}}"> الطلاب
 							الخرجين </a></li>
-					<li><a wire:navigate class="slide-item text-secondary " href="{{route('graduate.create')}}"> قائمة
+					<li><a  class="slide-item text-secondary " href="{{route('graduate.create')}}"> قائمة
 							الطلاب الخرجين </a></li>
 
 				</ul>
@@ -170,10 +170,10 @@
 					</svg><span class="side-menu__label"> اولياء الامور </span><i
 						class="angle fe fe-chevron-down"></i></a>
 				<ul class="slide-menu">
-					<li><a wire:navigate class="slide-item" href="{{route('parent_show.index')}}"> اولياء الامور </a>
+					<li><a  class="slide-item" href="{{route('parent_show.index')}}"> اولياء الامور </a>
 					</li>
 					<li>
-						<a wire:navigate class="slide-item" href="{{ route('parent.index') }}">قائمه ولي الأمر</a>
+						<a  class="slide-item" href="{{ route('parent.index') }}">قائمه ولي الأمر</a>
 					</li>
 
 				</ul>
@@ -193,6 +193,7 @@
 				<ul class="slide-menu">
 					<li><a class="slide-item" href="{{route('fees.index') }}"> الرسوم الدرسيه </a></li>
 					<li><a class="slide-item" href="{{route('feesInvoice.index')}}"> الفوتير </a></li>
+					<li><a class="slide-item" href="{{route('receipt.index')}}"> سندات القبض الطالب</a></li>
 				</ul>
 			</li>
 			<li class="side-item side-item-category">Pages</li>

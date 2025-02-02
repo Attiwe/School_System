@@ -65,25 +65,26 @@
                                     <div class="dropdown show">
                                 <a class="btn btn-outline-primary btn-sm dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fa-solid fa-cogs"></i> العمليات
+                                    <i class="fa-solid fa-cogs"></i>  <strong>العمليات</strong> 
                                 </a>
-
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                     <a class="dropdown-item text-success" href="{{route('student.edit', $student->id)}}">
-                                        <i class="fas fa-edit"></i> تعديل
+                                        <i class="fas fa-edit"></i>   <strong>تعديل</strong>
                                     </a>
                                     <button class="dropdown-item text-danger" type="button" data-toggle="modal" data-target="#exampleModalCenter{{$student->id}}">
-                                        <i class="fas fa-trash-alt"></i> حذف
+                                        <i class="fas fa-trash-alt"></i> <strong> حذف </strong>
                                     </button>
-                                    <a class="dropdown-item text-warning" href="{{route('student.show_student', $student->id)}}">
-                                        <i class="far fa-eye"></i> عرض
+                                    <a class="dropdown-item text-primary" href="{{route('student.show_student', $student->id)}}">
+                                        <i class="far fa-eye"></i> <strong>عرض</strong>  
                                     </a>
-                                    <a class="dropdown-item text-primary" href="{{route( 'feesInvoice.show',$student->id)}}">
-                                        <i class="fas fa-file-invoice-dollar"></i> إضافة فاتورة رسوم
+                                    <a class="dropdown-item text-primary" href="{{route('receipt.show',$student->id)}}">
+                                    <i class="fa-solid fa-receipt"></i> <strong>  اضافه سند قبض </strong>
+                                    </a>
+                                    <a class="dropdown-item text-dark" href="{{route( 'feesInvoice.show',$student->id)}}">
+                                        <i class="fas fa-file-invoice-dollar"></i>  <strong>إضافة فاتورة رسوم </strong>
                                     </a>
                                 </div>
                             </div>
-                                
                                     </td>
 
                                 </tr>

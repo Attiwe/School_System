@@ -75,7 +75,7 @@ class StudentRepositories implements StudentRepositoryInterface
             return redirect()->route('student.show');
         } catch (\Exception $e) {
             DB::rollBack();
- 
+
             return redirect()->back()->catchError = $e->getMessage();
         }
     }
