@@ -100,54 +100,59 @@ Route::controller(StudentController::class)->middleware('auth')->prefix('student
     Route::get('/section/{class_id}', 'getSection'); // Ajax for sections
 });
 
- 
-// Route::controller(PromotionController::class)->middleware('auth')->prefix('promotion')->group(function () {
-//     Route::get('/', 'index')->name('promotion.index');
-//     Route::post('/store', 'store')->name('promotion.store');
-//     Route::get('/create', 'create')->name('promotion.create');
-//     Route::delete('/destroy', 'destroy')->name('promotion.destroy');
- 
-Route::controller(PromotionController::class)->middleware('auth')->prefix('promotion')->group(function(){
 
-    Route::get('/','index')->name('promotion.index');
-    Route::post('/store','store')->name('promotion.store');
-    Route::get('/create','create')->name('promotion.create');
-    Route::delete('/destroy','destroy')->name('promotion.destroy');
- });
+Route::controller(PromotionController::class)->middleware('auth')->prefix('promotion')->group(function () {
 
-Route::controller(GraduateController::class)->middleware('auth')->prefix('graduate')->group(function () {
 
-    Route::get('/', 'index')->name('graduate.index');
-    Route::post('/store', 'store')->name('graduate.store');
-    Route::get('/create', 'create')->name('graduate.create');
-    Route::post('return/{id}', 'returnGraduate')->name('graduate.returnGraduate');
-    Route::delete('/destroy/{delete}', 'destroy')->name('graduate.destroy');
 
+    Route::controller(PromotionController::class)->middleware('auth')->prefix('promotion')->group(function () {
+
+        Route::get('/', 'index')->name('promotion.index');
+        Route::post('/store', 'store')->name('promotion.store');
+        Route::get('/create', 'create')->name('promotion.create');
+        Route::delete('/destroy', 'destroy')->name('promotion.destroy');
+    });
+
+
+    Route::controller(GraduateController::class)->middleware('auth')->prefix('graduate')->group(function () {
+
+        Route::get('/', 'index')->name('graduate.index');
+        Route::post('/store', 'store')->name('graduate.store');
+        Route::get('/create', 'create')->name('graduate.create');
+        Route::post('return/{id}', 'returnGraduate')->name('graduate.returnGraduate');
+        Route::delete('/destroy/{delete}', 'destroy')->name('graduate.destroy');
+
+    });
+    Route::controller(FeesController::class)->middleware('auth')->prefix('fees')->group(function () {
+
+        Route::get('/', 'index')->name('fees.index');
+        Route::get('/create', 'create')->name('fees.create');
+        Route::post('/store', 'store')->name('fees.store');
+        Route::get('/edit/{edit}', 'edit')->name('fees.edit');
+        Route::put('/update/{id}', 'update')->name('fees.update');
+        Route::get('/show/{id}', 'show')->name('fees.show');
+        Route::delete('/destroy/{delete}', 'destroy')->name('fees.destroy');
+
+    });
+
+    Route::controller(FeesInvoiceController::class)->middleware('auth')->prefix('feesInvoice')->group(function () {
+        Route::get('/', 'index')->name('feesInvoice.index');
+        Route::get('/show/{id}', 'show')->name('feesInvoice.show');
+        Route::post('/store', 'store')->name('feesInvoice.store');
+        Route::delete('/destroy/{delete}', 'destroy')->name('feesInvoice.destroy');
+    });
+
+
+    Route::controller(ReceiptStudentController::class)->middleware('auth')->prefix('receipt')->group(function () {
+
+        Route::get('/', 'index')->name('receipt.index');
+        Route::get('/show/{id}', 'show')->name('receipt.show');
+        Route::post('/store', 'store')->name('receipt.store');
+        Route::delete('/delete/{delete}', 'destroy')->name('receipt.delete');
+        Route::get('/edit/{edit}', 'edit')->name('receipt.edit');
+        Route::put('/update/{id}', 'update')->name('receipt.update');
+        Route::delete('/delete/{delete}', 'destroy')->name('receipt.delete');
+
+    });
 });
-Route::controller(FeesController::class)->middleware('auth')->prefix('fees')->group(function () {
 
-    Route::get('/', 'index')->name('fees.index');
-    Route::get('/create', 'create')->name('fees.create');
-    Route::post('/store', 'store')->name('fees.store');
-    Route::get('/edit/{edit}', 'edit')->name('fees.edit');
-    Route::put('/update/{id}', 'update')->name('fees.update');
-    Route::get('/show/{id}', 'show')->name('fees.show');
-    Route::delete('/destroy/{delete}', 'destroy')->name('fees.destroy');
-
-});
-
-Route::controller(FeesInvoiceController::class)->middleware('auth')->prefix('feesInvoice')->group(function () {
-    Route::get('/', 'index')->name('feesInvoice.index');
-    Route::get('/show/{id}', 'show')->name('feesInvoice.show');
-    Route::post('/store','store')->name('feesInvoice.store');
-    Route::delete('/destroy/{delete}','destroy')->name('feesInvoice.destroy');
-});
-
-Route::controller(ReceiptStudentController::class)->middleware('auth')->prefix('receipt')->group(function () {
-        
-    Route::get('/','index')->name('receipt.index');
-    Route::get('/show/{id}','show')->name('receipt.show');
-    Route::post('/store','store')->name('receipt.store');
-    Route::delete('/delete/{delete}','destroy')->name('receipt.delete');
- 
-});

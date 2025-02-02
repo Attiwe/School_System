@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\ReceiptStudent;
-use App\Repositories\ReceiptRepositoryInterface;
+ 
+ use App\Repositories\ReceiptRepositoryInterface;
 use Illuminate\Http\Request;
 
 class ReceiptStudentController extends Controller
@@ -38,17 +39,18 @@ class ReceiptStudentController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(ReceiptStudent $receiptStudent)
+    public function edit(Request $request)
     {
-        //
+        return $this->Receipt->edit($request);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, ReceiptStudent $receiptStudent)
+    
+    public function update(Request $request)
     {
-        //
+        return $this->Receipt->update($request); 
     }
 
     /**

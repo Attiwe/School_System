@@ -30,8 +30,9 @@ class ReceiptRepository implements ReceiptRepositoryInterface
         $request->validate([
             'student_id' => 'required|integer|exists:students,id',
             'debit' => 'required|numeric|min:0',
-            'notes' => 'nullable|string',
-        ]);
+ 
+            'notes' => 'required|string',
+         ]);
 
         DB::beginTransaction();
         try {
@@ -66,8 +67,57 @@ class ReceiptRepository implements ReceiptRepositoryInterface
             DB::rollBack();
             return redirect()->back()->withErrors(['error' => 'حدث خطأ أثناء إضافة السند: ' . $e->getMessage()]);
         }
+        }
 
+    public function edit($request){
+         
+         $receipt = ReceiptStudent::findOrFail($request->edit);
+           return view('pages.ReceiptStudent.edit_receiptStudent',compact('receipt'));
     }
+    public function update($request){
+      
+        //   return $request;
+ $request->validate([
+            'student_id' => 'required|integer|exists:students,id',
+            'debit' => 'required|numeric|min:0',
+            'notes' => 'required|string',
+        ]);
+
+        DB::beginTransaction();
+        try {
+            $receipt = ReceiptStudent::where('student_id',$request->student_id)->first();
+            $receipt->student_id = $request->student_id;
+            $receipt->debit = $request->debit;
+            $receipt->date = Carbon::now()->toDateTimeString();
+            $receipt->desc = $request->notes;
+            $receipt->save();
+
+            $fundAccount = FundAccount::where('receipt_id',$receipt->id)->first();;
+            $fundAccount->receipt_id = $receipt->id;
+            $fundAccount->date = Carbon::now()->toDateTimeString();
+            $fundAccount->debit = $request->debit;
+            $fundAccount->credit = 0.0;
+            $fundAccount->desc = $request->notes;
+            $fundAccount->save();
+
+            $studnetAccount =  StudentAccount::where('receipt_id',$receipt->id)->first();;
+            $studnetAccount->student_id = $request->student_id;
+            $studnetAccount->receipt_id = $receipt->id;
+            $studnetAccount->debit = 0.0;
+            $studnetAccount->credit = $request->debit;
+            $studnetAccount->desc = $request->notes;
+            $studnetAccount->save();
+
+            DB::commit();
+            toastr()->message('تم ');
+            return redirect()->route('receipt.index')->with('success', 'تم إضافة السند بنجاح.');
+
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return redirect()->back()->withErrors(['error' => 'حدث خطأ أثناء إضافة السند: ' . $e->getMessage()]);
+        }
+        
+     }
 
     public function destroy($request){
         

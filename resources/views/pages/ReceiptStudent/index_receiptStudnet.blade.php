@@ -56,7 +56,16 @@
                                     <h5> التاريخ </h5>
                                 </th>
                                 <th>
-                                    <h5> العمليات </h5>
+ 
+                                    <h5> تم إنشاؤه في
+                                    </h5>
+                                </th>
+                                <th>
+                                    <h5> تم التحديث في
+                                    </h5>
+                                </th>
+                                <th>
+                                     <h5> العمليات </h5>
                                 </th>
                             </tr>
                         </thead>
@@ -68,9 +77,12 @@
                                 <td class="text-danger" >  {{$receipt->debit}} جنيه </td>
                                 <td class="text-primary" >  {{$receipt->desc}} </td>
                                 <td class="text-primary">  {{$receipt->date}} </td>
+                                
+                                 <td class="text-primary">  {{$receipt->created_at}} </td>
+                                <td class="text-primary">  {{$receipt->updated_at}} </td>
                                 <td>  
-                                <button type="submit" class="btn btn-sm btn-primary"> <strong> التعديل </strong> </button>
-                                 <button type="submit" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#exampleModal{{$receipt->id}}">
+                                <a  href="{{route('receipt.edit',$receipt->id)}}"  class="btn btn-sm btn-primary"> <strong> التعديل </strong> </a>
+                                  <button type="submit" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#exampleModal{{$receipt->id}}">
                                 <strong> الحذف </strong> </button>
                                 </td>
                              </tr>
