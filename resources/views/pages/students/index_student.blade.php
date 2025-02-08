@@ -12,7 +12,9 @@
 <div class="breadcrumb-header justify-content-between">
     <div class="my-auto">
         <div class="d-flex">
-            <h4 class="content-title mb-0 my-auto">  <h3> <i class="fa-solid fa-user-graduate text-danger "> الطلاب </i></h3> </h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/
+            <h4 class="content-title mb-0 my-auto">
+                <h3> <i class="fa-solid fa-user-graduate text-danger "> الطلاب </i></h3>
+            </h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/
                 <a href="">الرجوع</a></span>
         </div>
     </div>
@@ -23,25 +25,43 @@
         <div class="card">
             <div class="card-header pb-0">
                 <div class="d-flex justify-content-between">
-                    <h4 class="card-title mg-b-0">    <i class="fa-solid fa-user-graduate  ">  الطلاب </i> </h4>
+                    <h4 class="card-title mg-b-0"> <i class="fa-solid fa-user-graduate  "> الطلاب </i> </h4>
                     <i class="mdi mdi-dots-horizontal text-gray"></i>
                 </div>
-             </div>
+            </div>
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table text-md-nowrap table table-hover " id="example1">
                         <thead class=" table-secondary  ">
                             <tr class="font-weight-bold">
-                             <th>#</th>
-                            <th><h5>اسم الطالب</h5></th>
-                            <th><h5>البريد الإلكتروني</h5></th>
-                            <th><h5>السنة الدراسية</h5></th>
-                            <th><h5>المرحلة الدراسية</h5></th>
-                            <th><h5>الصف الدراسي</h5></th>
-                            <th><h5>القاعه الدراسية</h5></th>
-                            <th><h5>تاريخ الميلاد</h5></th>
-                            <th><h5>الدولة</h5></th>
-                            <th><h5>العمليات</h5></th>
+                                <th>#</th>
+                                <th>
+                                    <h5>اسم الطالب</h5>
+                                </th>
+                                <th>
+                                    <h5>البريد الإلكتروني</h5>
+                                </th>
+                                <th>
+                                    <h5>السنة الدراسية</h5>
+                                </th>
+                                <th>
+                                    <h5>المرحلة الدراسية</h5>
+                                </th>
+                                <th>
+                                    <h5>الصف الدراسي</h5>
+                                </th>
+                                <th>
+                                    <h5>القاعه الدراسية</h5>
+                                </th>
+                                <th>
+                                    <h5>تاريخ الميلاد</h5>
+                                </th>
+                                <th>
+                                    <h5>الدولة</h5>
+                                </th>
+                                <th>
+                                    <h5>العمليات</h5>
+                                </th>
 
 
                             </tr>
@@ -62,29 +82,46 @@
                                     <td class="text-primary"> {{$student->nationalitieStudent->name}}</td>
                                     <td class="text-primary">
 
-                                    <div class="dropdown show">
-                                <a class="btn btn-outline-primary btn-sm dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fa-solid fa-cogs"></i>  <strong>العمليات</strong> 
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item text-success" href="{{route('student.edit', $student->id)}}">
-                                        <i class="fas fa-edit"></i>   <strong>تعديل</strong>
-                                    </a>
-                                    <button class="dropdown-item text-danger" type="button" data-toggle="modal" data-target="#exampleModalCenter{{$student->id}}">
-                                        <i class="fas fa-trash-alt"></i> <strong> حذف </strong>
-                                    </button>
-                                    <a class="dropdown-item text-primary" href="{{route('student.show_student', $student->id)}}">
-                                        <i class="far fa-eye"></i> <strong>عرض</strong>  
-                                    </a>
-                                    <a class="dropdown-item text-primary" href="{{route('receipt.show',$student->id)}}">
-                                    <i class="fa-solid fa-receipt"></i> <strong>  اضافه سند قبض </strong>
-                                    </a>
-                                    <a class="dropdown-item text-dark" href="{{route( 'feesInvoice.show',$student->id)}}">
-                                        <i class="fas fa-file-invoice-dollar"></i>  <strong>إضافة فاتورة رسوم </strong>
-                                    </a>
-                                </div>
-                            </div>
+                                        <div class="dropdown show">
+                                            <a class="btn btn-outline-primary btn-sm dropdown-toggle" href="#" role="button"
+                                                id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                                aria-expanded="false">
+                                                <i class="fa-solid fa-cogs"></i> <strong>العمليات</strong>
+                                            </a>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                <a class="dropdown-item text-success"
+                                                    href="{{route('student.edit', $student->id)}}">
+                                                    <i class="fas fa-edit"></i> <strong>تعديل</strong>
+                                                </a>
+                                                <button class="dropdown-item text-danger" type="button" data-toggle="modal"
+                                                    data-target="#exampleModalCenter{{$student->id}}">
+                                                    <i class="fas fa-trash-alt"></i> <strong> حذف </strong>
+                                                </button>
+                                                <a class="dropdown-item text-primary"
+                                                    href="{{route('student.show_student', $student->id)}}">
+                                                    <i class="far fa-eye"></i> <strong>عرض</strong>
+                                                </a>
+                                                <a class="dropdown-item text-dark"
+                                                    href="{{route('feesInvoice.show', $student->id)}}">
+                                                    <i class="fas fa-file-invoice-dollar"></i> <strong>إضافة فاتورة رسوم
+                                                    </strong>
+                                                </a>
+
+                                                <a class="dropdown-item text-primary"
+                                                    href="{{route('receipt.show', $student->id)}}">
+                                                    <i class="fa-solid fa-receipt"></i> <strong> اضافه سند قبض </strong>
+                                                </a>
+                                                <a class="dropdown-item text-secondary"
+                                                    href="{{route('paymentStudnet.show',$student->id)}}">
+                                                    <i class="fa-brands fa-paypal"></i> <strong>   سندات صرف   </strong>
+                                                </a>
+
+                                                <a class="dropdown-item text-danger"
+                                                    href="{{route('processfees.show', $student->id)}} ">
+                                                    <i class="fa-solid fa-file-excel"></i> <strong> استبعاد رسوم </strong>
+                                                </a>
+                                            </div>
+                                        </div>
                                     </td>
 
                                 </tr>

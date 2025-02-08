@@ -48,7 +48,7 @@
                                             <div class="col-12 col-md-6 mb-3">
                                                 <label for="name" class="form-label">الاسم</label>
                                                 <input type="text" id="name" name="name" class="form-control"
-                                                    value="{{ old('name') }}" required autocomplete="off">
+                                                    value="{{ old('name') }}" required autocomplete="off"  >
                                                 @error('name')
                                                     <small class="text-danger">{{ $message }}</small>
                                                 @enderror
@@ -75,7 +75,7 @@
                                             <div class="col-12 col-md-6 mb-3">
                                                 <label for="academic_year" class="form-label">السنة الدراسية</label>
                                                 <select id="academic_year" name="academic_year" class="form-control"
-                                                    required>
+                                                    required  readonly >
                                                     <option value="">اختر السنة الدراسية</option>
                                                     @php
                                                         $current_year = date("Y");
@@ -92,7 +92,7 @@
                                             <div class="col-12 col-md-6 mb-3">
                                                 <label for="date_birth" class="form-label">تاريخ الميلاد</label>
                                                 <input type="date" id="date_birth" name="date_birth"
-                                                    class="form-control" value="{{ old('date_birth') }}" required>
+                                                    class="form-control" value="{{ old('date_birth') }}" required  >
                                                 @error('date_birth')
                                                     <small class="text-danger">{{ $message }}</small>
                                                 @enderror
@@ -104,7 +104,7 @@
                                                 <label for="nationalitie_id"
                                                     class="form-label"><strong>الدولة</strong></label>
                                                 <select name="nationalitie_id" class="form-control" id="nationalitie_id"
-                                                    required>
+                                                    required readonly >
                                                     <option value="" selected disabled>-- اختر الدولة --</option>
                                                     @foreach ($nationalities as $nationalitie)
                                                         <option value="{{$nationalitie->id}}" {{ old('nationalitie_id') == $nationalitie->id ? 'selected' : '' }}>
@@ -138,7 +138,7 @@
                                             <div class="col-12 col-md-6 mb-3">
                                                 <label for="blood_id" class="form-label">فصيلة الدم</label>
                                                 <select id="blood_id" name="blood_id" class="form-control" required>
-                                                    <option value="" selected disabled> -- فصيلة الدم -- </option>
+                                                    <option value="" selected disabled  > -- فصيلة الدم -- </option>
                                                     @foreach ($bloods as $blood)
                                                         <option value="{{$blood->id}}" {{ old('blood_id') == $blood->id ? 'selected' : '' }}>{{$blood->name}}</option>
                                                     @endforeach

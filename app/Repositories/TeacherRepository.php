@@ -28,7 +28,7 @@ class TeacherRepository implements TeacherRepositoryInterface
          $data['joining_Date'] = $data['joining_date'];
          $data['gender'] = $data['Gender'];
          Teacher::create($data);
-         //   toastr()->success('تمت الاضافه');
+            toastr()->success('تمت الاضافه');
          return redirect()->route('teacher.index');
       } catch (\Exception $e) {
          return redirect()->back()->withErrors(['error' => $e->getMessage()]);
@@ -57,7 +57,7 @@ class TeacherRepository implements TeacherRepositoryInterface
          $data['joining_Date'] = $data['joining_date'];
          $data['gender'] = $data['Gender'];
          $teacher->update($data);
-         toastr()->success('تمت التعديل');
+          toastr()->success('تمت التعديل');
          return redirect()->route('teacher.index');
       } catch (\Exception $e) {
          return redirect()->back()->withErrors(['error' => $e->getMessage()]);
@@ -73,7 +73,7 @@ class TeacherRepository implements TeacherRepositoryInterface
       $teacher = Teacher::findOrFail($id);
       if ($teacher) {
          $teacher->delete();
-         toastr()->success(' تم المسح ');
+          toastr()->success(' تم المسح ');
          return redirect()->route('teacher.index');
       } else {
          toastr()->error('  غير موجود ');

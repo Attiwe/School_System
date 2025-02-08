@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('fund_accounts', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('receipt_id')->constrained('receipt_students')->cascadeOnDelete();
+            $table->foreignId('receipt_id')->nullable()->constrained('receipt_students')->cascadeOnDelete();
+            $table->foreignId('payment_id')->nullable()->constrained('receipt_students')->cascadeOnDelete();
             $table->date('date');
             $table->decimal('debit',8,2)->nullable();
             $table->decimal('credit',8,2)->nullable();

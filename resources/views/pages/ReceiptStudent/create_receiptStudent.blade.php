@@ -1,8 +1,7 @@
 @extends('layouts.master')
 
 @section('css')
-<!-- إضافة أي أنماط CSS إضافية هنا -->
-@endsection
+ @endsection
 
 @section('page-header')
 <!-- breadcrumb -->
@@ -21,6 +20,7 @@
 </div>
 <!-- breadcrumb -->
 @endsection
+
 
 @section('content')
 <div class="row row-sm">
@@ -41,7 +41,7 @@
                             <input type="hidden" name="student_id" value="{{$student->id}}">
                             <label for="debit" class="form-label"> <strong>المبلغ</strong> </label>
                             <input type="number" id="debit" name="debit" class="form-control" value="{{ old('debit') }}"
-                                required autocomplete="off">
+                                required r>
                             @error('debit')
                                 <small class="text-danger">{{ $message }}</small>
                             @enderror

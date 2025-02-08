@@ -13,8 +13,15 @@ class FeesInvoiceRepository implements FeesInvoiceRepositoryInterface
 
     public function index()
     {
-        $feesInvoice = FeesInvoice::latest()->get();
-        return view('pages.feesInvoices.index_invoice', compact('feesInvoice'));
+        try {
+
+            $feesInvoice = FeesInvoice::latest()->get();
+            return view('pages.feesInvoices.index_invoice', compact('feesInvoice'));
+        } catch (\Exception $e) {
+            toastr()->error('حدث خطأ أثناء تحميل بيانات الطالب:')->$e->getMessage;
+            return redirect()->back();
+
+        }
     }
     public function showFeesInvoice($request)
     {
@@ -73,7 +80,7 @@ class FeesInvoiceRepository implements FeesInvoiceRepositoryInterface
             $studentAccount->grade_id = $request->grade;
             $studentAccount->class_id = $request->class_title;
             $studentAccount->debit = $request->amount;
-             $studentAccount->credit = 00.0;
+            $studentAccount->credit = 00.0;
             $studentAccount->desc = "--";
             $studentAccount->save();
             DB::commit();
@@ -85,7 +92,7 @@ class FeesInvoiceRepository implements FeesInvoiceRepositoryInterface
         }
     }
 
-   
+
     public function destroy($request)
     {
 

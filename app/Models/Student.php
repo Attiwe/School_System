@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -9,6 +10,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Student extends Model
 {
      use SoftDeletes;
+     use HasFactory;
      protected $fillable = ['grade_id','class_id','section_id','nationalitie_id','blood_id','parents_id' ,'email','gender','date_birth','academic_year','name','password'];
 
 
@@ -35,6 +37,11 @@ class Student extends Model
      public function parentsStudent(){
           return $this->belongsTo( MyParents::class,'parents_id');
      }
+     public function student_account()
+     {
+         return $this->hasMany(StudentAccount::class,'student_id');
+     }
+     
 
      
       

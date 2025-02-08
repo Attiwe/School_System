@@ -2,11 +2,13 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class MyParents extends Model
 {
+   use HasFactory;
  protected $fillable = [
     'email', 'email_mather', 'national_id_father', 'national_id_mother',
     'passport_id_father', 'passport_id_mother', 'phone_father', 'phone_mother',

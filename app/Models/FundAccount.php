@@ -6,6 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class FundAccount extends Model
 {
-    protected $fillable = ['receipt_id','date','debit','desc','credit'];
+    protected $fillable = ['receipt_id','date','debit','desc','credit','payment_id'];
 
 }

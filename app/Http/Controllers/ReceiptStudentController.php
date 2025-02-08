@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ReceiptStudnetRequest;
 use App\Models\ReceiptStudent;
  
  use App\Repositories\ReceiptRepositoryInterface;
@@ -25,7 +26,7 @@ class ReceiptStudentController extends Controller
     {
         //
     }
-    public function store(Request $request)
+    public function store(ReceiptStudnetRequest $request)
     {
          return $this->Receipt->store($request);
     }
@@ -48,7 +49,7 @@ class ReceiptStudentController extends Controller
      * Update the specified resource in storage.
      */
     
-    public function update(Request $request)
+    public function update(ReceiptStudnetRequest $request)
     {
         return $this->Receipt->update($request); 
     }

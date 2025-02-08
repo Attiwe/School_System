@@ -113,7 +113,8 @@
                                                     @method('DELETE')
                                                     <h3>هل انت متاكد من عملية الحذف ؟</h3><br>
                                                     <input type="hidden" name="id" value="{{$fees->id}}" id="id">
-                                                    <input class="form-control" name="name" value="{{$fees->student->name}}" type="text" readonly>
+                                                    <input class="form-control" name="name" value="{{$fees->student->name}}"
+                                                        type="text" readonly>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-primary" data-dismiss="modal">
                                                             اغلاق </button>
@@ -124,7 +125,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                             @endforeach
 
                         </tbody>

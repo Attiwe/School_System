@@ -127,6 +127,9 @@
                                                 <th>
                                                     <h5>القاعه الدراسية</h5>
                                                 </th>
+                                                <th>
+                                                    <h5>  العمليات </h5>
+                                                </th>
 
                                             </tr>
                                         </thead>
@@ -140,10 +143,36 @@
                                                     <td class="text-secondary"> {{ $stud->email }}</td>
                                                     <td class="text-danger"> {{ $stud->academic_year }}</td>
                                                     <td class="text-primary"> {{ $stud->gradeStudent->name   }}</td>
-                                                    <td class="text-primary"> {{ $stud->classStudent->nameClass   }}
+                                                    <td class="text-primary"> {{ $stud->classStudent->nameClass   }}</td>
+                                                    <td class="text-primary">{{ $stud->sectionStudent->nameSectian   }}</td>
+                                                    <td>
+                                                    <div class="dropdown show">
+                                <a class="btn btn-outline-primary btn-sm dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fa-solid fa-cogs"></i>  <strong>العمليات</strong> 
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item text-success" href="{{route('student.edit', $stud->id)}}">
+                                        <i class="fas fa-edit"></i>   <strong>تعديل</strong>
+                                    </a>
+                                    <button class="dropdown-item text-danger" type="button" data-toggle="modal" data-target="#exampleModalCenter{{$stud->id}}">
+                                        <i class="fas fa-trash-alt"></i> <strong> حذف </strong>
+                                    </button>
+                                    <a class="dropdown-item text-primary" href="{{route('student.show_student', $stud->id)}}">
+                                        <i class="far fa-eye"></i> <strong>عرض</strong>  
+                                    </a>
+                                    <a class="dropdown-item text-primary" href="{{route('receipt.show',$stud->id)}}">
+                                    <i class="fa-solid fa-receipt"></i> <strong>  اضافه سند قبض </strong>
+                                    </a>
+                                    <a class="dropdown-item text-dark" href="{{route( 'feesInvoice.show',$stud->id)}}">
+                                        <i class="fas fa-file-invoice-dollar"></i>  <strong>إضافة فاتورة رسوم </strong>
+                                    </a>
+                                    <a class="dropdown-item text-danger" href="{{route('processfees.show',$stud->id)}} ">
+                                    <i class="fa-solid fa-file-excel"></i> <strong> استبعاد  رسوم </strong>
+                                    </a>
+                                </div>
+                            </div>
                                                     </td>
-                                                    <td class="text-primary">
-                                                        {{ $stud->sectionStudent->nameSectian   }}</td>
                                                 </tr>
                                             @endforeach
                                         </tbody>

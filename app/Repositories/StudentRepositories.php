@@ -70,7 +70,7 @@ class StudentRepositories implements StudentRepositoryInterface
                 }
             }
             DB::commit();
-            // toastr()->success('تمت إضافة الطالب ' . $student->name . ' بنجاح', ['positionClass' => 'toast-top-left']);
+             toastr()->success('تمت إضافة الطالب ' . $student->name . ' بنجاح', ['positionClass' => 'toast-top-left']);
 
             return redirect()->route('student.show');
         } catch (\Exception $e) {
@@ -101,7 +101,7 @@ class StudentRepositories implements StudentRepositoryInterface
             $student = Student::findOrFail($request->id);
             $data = $request->only(['name', 'email', 'academic_year', 'date_birth', 'nationalitie_id', 'gender', 'blood_id', 'grade_id', 'class_id', 'section_id', 'parents_id']);
             $student->update($data);
-            // toastr()->success('تمت الاضافه', ['positionClass' => 'toast-top-left']);
+             toastr()->success('تمت الاضافه', ['positionClass' => 'toast-top-left']);
             return redirect()->route('student.show');
 
         } catch (\Exception $e) {
@@ -156,6 +156,7 @@ class StudentRepositories implements StudentRepositoryInterface
         try {
             if ($id) {
                 Student::where('id', $id)->delete();
+                toastr()->error('تم الحذف');
                 return redirect()->route('student.show');
             }
         } catch (\Exception $e) {
@@ -169,6 +170,7 @@ class StudentRepositories implements StudentRepositoryInterface
         // dd($request->all());
         Storage::disk('student_Attachments')->delete('attachments/students/' . $request->student_name . '/' . $request->fileName);
         Image::where('id', $request->id)->where('fileName', $request->fileName)->delete();
+        toastr()->error('تم الحذف');
         return redirect()->back();
     }
 

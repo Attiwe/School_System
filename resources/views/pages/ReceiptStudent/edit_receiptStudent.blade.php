@@ -42,7 +42,7 @@
                         <input type="hidden" name="student_id" value="{{$receipt->  student->id}}">
                         <label for="debit" class="form-label"> <strong>المبلغ</strong> </label>
                             <input type="number" id="debit" name="debit" class="form-control" value="{{ old('debit',$receipt->debit) }}"
-                                required autocomplete="off">
+                                required readonly>
                             @error('debit')
                                 <small class="text-danger">{{ $message }}</small>
                             @enderror

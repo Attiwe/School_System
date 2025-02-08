@@ -84,33 +84,23 @@
                                     <td class=" text-center"> {{$fees->desc}} </td>
                                     <td class=" text-center text-primary">
 
-                                    <div class="dropdown show">
-                                <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" 
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fa-solid fa-cogs"></i> العمليات
-                                </a>
+                                        <a href="{{ route('fees.edit', $fees->id) }}" class="btn btn-sm btn-primary">
+                                            <i class="fa-solid fa-pen-to-square"></i> التعديل
+                                        </a>
 
-                                <div class="dropdown-menu text-right" aria-labelledby="dropdownMenuLink">
-                                    
-                                    <a href="{{route('fees.edit', $fees->id)}}" class="dropdown-item text-primary">
-                                        <i class="fa-solid fa-pen-to-square"></i> التعديل
-                                    </a>
+                                        <button type="button" class="btn btn-sm btn-danger" data-toggle="modal"
+                                            data-target="#exampleModal{{$fees->id}}">
+                                            <i class="fa-solid fa-trash"></i> الحذف
+                                        </button>
 
-                                    <button type="button" class="dropdown-item text-danger" data-toggle="modal" data-target="#exampleModal{{$fees->id}}">
-                                        <i class="fa-solid fa-trash"></i> الحذف
-                                    </button>
- 
-                                    <a href="{{route('fees.show', $fees->id)}}" class="dropdown-item text-info">
-                                        <i class="fa-regular fa-eye"></i> العرض
-                                    </a>
-                                    
-                                </div>
-                            </div>
-                           
-                            </td>
+                                        <a href="{{ route('fees.show', $fees->id) }}" class="btn btn-sm btn-info">
+                                            <i class="fa-regular fa-eye"></i> العرض
+                                        </a>
+
+
+                                    </td>
 
                                 </tr>
-
 
                                 <!-- Modal Delete -->
                                 <div class="modal fade" id="exampleModal{{$fees->id}}" tabindex="-1" role="dialog"
