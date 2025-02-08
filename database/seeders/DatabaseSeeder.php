@@ -19,26 +19,20 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        Student::factory(300)->create();
-        // Fees::factory(50)->create();
-        //   Appointments::factory(100)->create();
-        //   Teacher::factory(100)->create();
-        //   MyParents::factory(10)->create();
-            //   Sections::factory(10)->create();
- 
-        // User::factory(10)->create();
+          Student::factory(50)->create();
+        //  Fees::factory(50)->create();
+        // Appointments::factory(50)->create();
+        //  Teacher::factory(100)->create();
+        // MyParents::factory(10)->create();
+        //   Sections::factory(30)->create();
 
-        // User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
 
         //   $this->call(TypeBloods::class);
         //   $this->call(Nationalities::class);
         //   $this->call(ReligionsSeeder::class);
         //   $this->call(Adnim::class);
         //   $this->call(SpecializationsSeeder::class);
-        //   $this->call(GradeSeeder::class);
+        //    $this->call(GradeSeeder::class);
         //      $this->call(ClassSeeder::class);
         //       $this->call(ParentSeeder::class);
     }

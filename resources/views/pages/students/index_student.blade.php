@@ -106,15 +106,19 @@
                                                     <i class="fas fa-file-invoice-dollar"></i> <strong>إضافة فاتورة رسوم
                                                     </strong>
                                                 </a>
-
+ 
                                                 <a class="dropdown-item text-primary"
                                                     href="{{route('receipt.show', $student->id)}}">
                                                     <i class="fa-solid fa-receipt"></i> <strong> اضافه سند قبض </strong>
                                                 </a>
+                                                 
+                                                
                                                 <a class="dropdown-item text-secondary"
                                                     href="{{route('paymentStudnet.show',$student->id)}}">
                                                     <i class="fa-brands fa-paypal"></i> <strong>   سندات صرف   </strong>
                                                 </a>
+                                                 
+                                                
 
                                                 <a class="dropdown-item text-danger"
                                                     href="{{route('processfees.show', $student->id)}} ">

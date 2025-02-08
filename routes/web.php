@@ -158,5 +158,9 @@ Route::controller(PaymentStudentController::class)->middleware('auth')->prefix('
     Route::get('/', 'index')->name('paymentStudnet.index');
     Route::get('/show/{id}', 'show')->name('paymentStudnet.show');
     Route::post('/store', 'store')->name('paymentStudnet.store');
+    Route::get('/edit/{edit}', 'edit')->name('paymentStudnet.edit');
+    Route::put('/update/{id}', 'update')->name('paymentStudnet.update');
+    Route::delete('/delete/{delete}', 'destroy')->name('paymentStudnet.delete'); 
+
 
 });

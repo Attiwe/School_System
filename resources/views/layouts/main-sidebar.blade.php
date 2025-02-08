@@ -194,6 +194,7 @@
 					<li><a class="slide-item" href="{{route('fees.index') }}"> الرسوم الدرسيه </a></li>
 					<li><a class="slide-item" href="{{route('feesInvoice.index')}}"> الفوتير </a></li>
 					<li><a class="slide-item" href="{{route('receipt.index')}}"> سندات  قبض الطالب</a></li>
+					<li><a class="slide-item" href="{{route('paymentStudnet.index')}}"> سندات   صرف  </a></li>
 					<li><a class="slide-item" href="{{route('processfees.index')}}"> استبعاد رسوم </a></li>w
 				</ul>
 			</li>
