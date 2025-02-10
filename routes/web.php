@@ -173,8 +173,12 @@ Route::controller(AttendenceStudentController::class)->middleware('auth')->prefi
 });
 
 Route::controller(SubjectStudentController::class)->middleware('auth')->prefix('subjectStudent')->group(function () {
-        Route::get('/','index')->name('subjectStudent.index');
-        Route::get('/create', 'create')->name('subjectStudent.create');
-        Route::post('/store', 'store')->name('subjectStudent.store');
+    Route::get('/', 'index')->name('subjectStudent.index');
+    Route::get('/create', 'create')->name('subjectStudent.create');
+    Route::post('/store', 'store')->name('subjectStudent.store');
+    Route::get('/edit/{edit}', 'edit')->name('subjectStudent.edit');
+    Route::put('/update/{id}', 'update')->name('subjectStudent.update');
+    Route::delete('/delete/{delete}', 'destroy')->name('subjectStudent.delete');
+
 
 });

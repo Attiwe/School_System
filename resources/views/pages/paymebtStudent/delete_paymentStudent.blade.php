@@ -11,11 +11,11 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{{route('paymentStudnet.delete', $payment->id)}}" method="post">
+                <form action="{{route('paymentStudnet.delete', 'test')}}" method="post">
                     @csrf
                     @method('DELETE')
                     <h3>هل انت متاكد من عملية الحذف ؟</h3><br>
-                    <input type="text" name="id" value="{{$payment->id}}" id="id">
+                    <input type="hidden" name="id" value="{{$payment->id}}" id="id">
                     <input class="form-control" name="name" value="{{$payment->student->name}}" type="text" readonly>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" data-dismiss="modal">

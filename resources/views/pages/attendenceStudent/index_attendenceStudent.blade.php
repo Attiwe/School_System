@@ -13,7 +13,7 @@
     <div class="my-auto">
         <div class="d-flex">
             <h4 class="content-title mb-0 my-auto">
-                <h3><i class="fa-solid fa-eye-slash text-primary "> قائمة الحضور والغياب للطلاب </i></h3>
+                <h3><i class="fa-solid fa-eye text-primary "> قائمة الحضور والغياب للطلاب </i></h3>
             </h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/
                 <a href="">الرجوع</a></span>
         </div>
@@ -26,7 +26,7 @@
             <div class="card-header pb-0">
                 <div class="d-flex justify-content-between">
                     <h4 class="card-title mg-b-0">
-                        <i class="fa-solid fa-user-graduate"></i> الطلاب
+                    <i class="fa-solid fa-eye text-primary "></i>   التاريخ :
                         <span class="text-danger"> {{ now()->translatedFormat('d F Y') }} </span>
                     </h4>
                     <i class="mdi mdi-dots-horizontal text-gray"></i>

@@ -22,41 +22,22 @@ class SubjectStudentController extends Controller
     public function create()
     {
          return $this->SubjectStudent->create();
-    }
-
-    
+    }    
     public function store(Request $request)
     {
         return $this->SubjectStudent->store($request);
     }
 
-    
-    public function show(SubjectStudent $subjectStudent)
+    public function edit(Request $request)
     {
-        //
+        return $this->SubjectStudent->edit($request);
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(SubjectStudent $subjectStudent)
+    public function update(Request $request )
     {
-        //
+         return $this->SubjectStudent->update($request);
     }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, SubjectStudent $subjectStudent)
+     public function destroy(Request $request)
     {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(SubjectStudent $subjectStudent)
-    {
-        //
+        return $this->SubjectStudent->destroy($request);
     }
 }
