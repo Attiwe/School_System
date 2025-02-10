@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AppointmentsController;
+use App\Http\Controllers\AttendenceStudentController;
 use App\Http\Controllers\ClassRomsController;
 use App\Http\Controllers\FeesController;
 use App\Http\Controllers\FeesInvoiceController;
@@ -14,6 +15,7 @@ use App\Http\Controllers\PromotionController;
 use App\Http\Controllers\ReceiptStudentController;
 use App\Http\Controllers\SectionsController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\SubjectStudentController;
 use App\Http\Controllers\TeacherController;
 use Illuminate\Support\Facades\Route;
 
@@ -160,7 +162,19 @@ Route::controller(PaymentStudentController::class)->middleware('auth')->prefix('
     Route::post('/store', 'store')->name('paymentStudnet.store');
     Route::get('/edit/{edit}', 'edit')->name('paymentStudnet.edit');
     Route::put('/update/{id}', 'update')->name('paymentStudnet.update');
-    Route::delete('/delete/{delete}', 'destroy')->name('paymentStudnet.delete'); 
+    Route::delete('/delete/{delete}', 'destroy')->name('paymentStudnet.delete');
+});
 
+Route::controller(AttendenceStudentController::class)->middleware('auth')->prefix('attendenceStudent')->group(function () {
+    Route::get('/', 'index')->name('attendence.index');
+    Route::get('/show/{id}', 'show')->name('attendence.show');
+    Route::post('/store', 'store')->name('attendence.store');
+    Route::get('show_attencesStudnet', 'ShowAttendenceStudent')->name('attendence.showAttendenceStudent');
+});
+
+Route::controller(SubjectStudentController::class)->middleware('auth')->prefix('subjectStudent')->group(function () {
+        Route::get('/','index')->name('subjectStudent.index');
+        Route::get('/create', 'create')->name('subjectStudent.create');
+        Route::post('/store', 'store')->name('subjectStudent.store');
 
 });

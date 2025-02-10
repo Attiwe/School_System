@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use App\Repositories\AppointmentsRepository;
 use App\Repositories\AppointmentsRepositoryInterface;
+use App\Repositories\AttendenceStudentRepository;
+use App\Repositories\AttendenceStudentRepositoryInterface;
 use App\Repositories\FeesInvoiceRepository;
 use App\Repositories\FeesInvoiceRepositoryInterface;
 use App\Repositories\FeesRepository;
@@ -20,15 +22,15 @@ use App\Repositories\ReceiptRepository;
 use App\Repositories\ReceiptRepositoryInterface;
 use App\Repositories\StudentRepositories;
 use App\Repositories\StudentRepositoryInterface;
+use App\Repositories\SubjectStudentRepository;
+use App\Repositories\SubjectStudentRepositoryInterface;
 use App\Repositories\TeacherRepository;
 use App\Repositories\TeacherRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
     
 class AppServiceProvider extends ServiceProvider
 {
-    /**
-     * Register any application services.
-     */
+     
     public function register(): void
     {
         $this->app->bind(TeacherRepositoryInterface::class,TeacherRepository::class);
@@ -38,9 +40,11 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(GraduateRepositoryInterface::class, GraduateRepository::class);
         $this->app->bind(FeesRepositoryInterface::class,FeesRepository::class);
         $this->app->bind(FeesInvoiceRepositoryInterface::class,FeesInvoiceRepository::class);
-        $this->app->bind( ReceiptRepositoryInterface::class, ReceiptRepository::class);
-        $this->app->bind( ProcessingFeesRepositoryInterface::class, ProcessingFeesRepository::class);
-        $this->app->bind( PaymentStudentRepositoryInterface::class, PaymentStudentRepository::class);
+        $this->app->bind(ReceiptRepositoryInterface::class, ReceiptRepository::class);
+        $this->app->bind(ProcessingFeesRepositoryInterface::class, ProcessingFeesRepository::class);
+        $this->app->bind(PaymentStudentRepositoryInterface::class, PaymentStudentRepository::class);
+        $this->app->bind( AttendenceStudentRepositoryInterface::class, AttendenceStudentRepository::class);
+        $this->app->bind( SubjectStudentRepositoryInterface::class, SubjectStudentRepository::class);
  
      }
 

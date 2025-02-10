@@ -23,4 +23,10 @@ class Sections extends Model
     {
         return $this->belongsTo(ClassRoms::class, 'class_id');
     }
+     public function grade()
+    {
+        return $this->belongsTo(Grade::class, 'grade_id');
+    }
+
+    
 }

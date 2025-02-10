@@ -42,7 +42,12 @@ class Student extends Model
          return $this->hasMany(StudentAccount::class,'student_id');
      }
      
-      
+     public function attendece()
+     {
+         return $this->hasMany(AttendenceStudent::class );
+     }
+     
+     
      
       
 }
