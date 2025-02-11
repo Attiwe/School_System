@@ -240,7 +240,7 @@
 					</svg><span class="side-menu__label">    الاختبارات </span><i class="angle fe fe-chevron-down"></i></a>
 					<ul class="slide-menu">
  				<li><a class="slide-item" href=" {{route('exams.index')}} "> قائمة   الامتحانات    </a></li>
- 				<li><a class="slide-item" href=" {{route('exams.index')}} "> قائمة   الاختبارات    </a></li>
+ 				<li><a class="slide-item" href=" {{route('quizze.index')}} "> قائمة   الاختبارات    </a></li>
 				</ul>
 			</li>
 		</ul>

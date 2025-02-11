@@ -13,6 +13,7 @@ use App\Http\Controllers\PaymentStudentController;
 use App\Http\Controllers\ProcessingFeesController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PromotionController;
+use App\Http\Controllers\QuizzeController;
 use App\Http\Controllers\ReceiptStudentController;
 use App\Http\Controllers\SectionsController;
 use App\Http\Controllers\StudentController;
@@ -182,12 +183,21 @@ Route::controller(SubjectStudentController::class)->middleware('auth')->prefix('
     Route::delete('/delete/{delete}', 'destroy')->name('subjectStudent.delete');
 });
 
+     // replace exams with me Quizze
 Route::controller(ExamsController::class)->middleware('auth')->prefix('Exams')->group(function () {
-  
     Route::get('/', 'index')->name('exams.index');
     Route::get('/create', 'create')->name('exams.create');
     Route::post('/store', 'store')->name('exams.store');
     Route::get('/edit/{edit}', 'edit')->name('exams.edit');
     Route::put('/update/{id}', 'update')->name('exams.update');
     Route::delete('/delete/{delete}', 'destroy')->name('exams.delete');
+});
+
+Route::controller(QuizzeController::class)->middleware('auth')->prefix('quizze')->group(function () {
+    Route::get('/', 'index')->name('quizze.index');
+    Route::get('/create', 'create')->name('quizze.create');
+    Route::post('/store', 'store')->name('quizze.store');
+    Route::get('/edit/{edit}', 'edit')->name('quizze.edit');
+    Route::put('/update/{id}', 'update')->name('quizze.update');
+    Route::delete('/delete/{delete}', 'destroy')->name('quizze.delete');
 });
