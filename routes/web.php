@@ -3,6 +3,7 @@
 use App\Http\Controllers\AppointmentsController;
 use App\Http\Controllers\AttendenceStudentController;
 use App\Http\Controllers\ClassRomsController;
+use App\Http\Controllers\ExamsController;
 use App\Http\Controllers\FeesController;
 use App\Http\Controllers\FeesInvoiceController;
 use App\Http\Controllers\GradeController;
@@ -179,6 +180,14 @@ Route::controller(SubjectStudentController::class)->middleware('auth')->prefix('
     Route::get('/edit/{edit}', 'edit')->name('subjectStudent.edit');
     Route::put('/update/{id}', 'update')->name('subjectStudent.update');
     Route::delete('/delete/{delete}', 'destroy')->name('subjectStudent.delete');
+});
 
-
+Route::controller(ExamsController::class)->middleware('auth')->prefix('Exams')->group(function () {
+  
+    Route::get('/', 'index')->name('exams.index');
+    Route::get('/create', 'create')->name('exams.create');
+    Route::post('/store', 'store')->name('exams.store');
+    Route::get('/edit/{edit}', 'edit')->name('exams.edit');
+    Route::put('/update/{id}', 'update')->name('exams.update');
+    Route::delete('/delete/{delete}', 'destroy')->name('exams.delete');
 });

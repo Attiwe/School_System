@@ -6,6 +6,8 @@ use App\Repositories\AppointmentsRepository;
 use App\Repositories\AppointmentsRepositoryInterface;
 use App\Repositories\AttendenceStudentRepository;
 use App\Repositories\AttendenceStudentRepositoryInterface;
+use App\Repositories\ExamsRepository;
+use App\Repositories\ExamsRepositoryInterface;
 use App\Repositories\FeesInvoiceRepository;
 use App\Repositories\FeesInvoiceRepositoryInterface;
 use App\Repositories\FeesRepository;
@@ -43,8 +45,9 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(ReceiptRepositoryInterface::class, ReceiptRepository::class);
         $this->app->bind(ProcessingFeesRepositoryInterface::class, ProcessingFeesRepository::class);
         $this->app->bind(PaymentStudentRepositoryInterface::class, PaymentStudentRepository::class);
-        $this->app->bind( AttendenceStudentRepositoryInterface::class, AttendenceStudentRepository::class);
-        $this->app->bind( SubjectStudentRepositoryInterface::class, SubjectStudentRepository::class);
+        $this->app->bind(AttendenceStudentRepositoryInterface::class, AttendenceStudentRepository::class);
+        $this->app->bind(SubjectStudentRepositoryInterface::class, SubjectStudentRepository::class);
+        $this->app->bind(ExamsRepositoryInterface::class, ExamsRepository::class);
  
      }
 
