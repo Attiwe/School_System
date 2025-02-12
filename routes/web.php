@@ -13,6 +13,7 @@ use App\Http\Controllers\PaymentStudentController;
 use App\Http\Controllers\ProcessingFeesController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PromotionController;
+use App\Http\Controllers\QuestionsController;
 use App\Http\Controllers\QuizzeController;
 use App\Http\Controllers\ReceiptStudentController;
 use App\Http\Controllers\SectionsController;
@@ -200,4 +201,13 @@ Route::controller(QuizzeController::class)->middleware('auth')->prefix('quizze')
     Route::get('/edit/{edit}', 'edit')->name('quizze.edit');
     Route::put('/update/{id}', 'update')->name('quizze.update');
     Route::delete('/delete/{delete}', 'destroy')->name('quizze.delete');
+});
+
+Route::controller(QuestionsController::class)->middleware('auth')->prefix('question')->group(function () {
+    Route::get('/', 'index')->name('question.index');
+    Route::get('/create', 'create')->name('question.create');
+    Route::post('/store', 'store')->name('question.store');
+    Route::get('/edit/{edit}', 'edit')->name('question.edit');
+    Route::put('/update/{id}', 'update')->name('question.update');
+    Route::delete('/delete/{delete}', 'destroy')->name('question.delete');
 });

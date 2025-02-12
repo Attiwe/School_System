@@ -83,4 +83,5 @@ class QuizzeRepository implements QuizzeRepositoryInterface
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
     }
+    
 }

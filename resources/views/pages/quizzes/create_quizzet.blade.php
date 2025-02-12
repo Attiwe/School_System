@@ -15,7 +15,7 @@
             <h4 class="content-title mb-0 my-auto">
                 <h3> <i class="fa-solid fa-address-book text-primary "> الاختبارات</i></h3>
             </h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/
-                <a href="{{route('fees.index')}}">الرجوع</a></span>
+                <a href="{{route('quizze.index')}}">الرجوع</a></span>
         </div>
     </div>
 </div>
@@ -28,7 +28,7 @@
 
 
 <div class="row row-sm">
-    <div class="col-xl-12">
+    <div class="col-xl-12"> 
         <div class="card mt-5">
             <div class="col-xl-12">
                 <div class="card-header pb-0">
