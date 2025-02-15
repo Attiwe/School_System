@@ -16,6 +16,7 @@
     </div>
 </div>
 
+
 @if (!empty($catchError))
         <div class="alert alert-danger" id="error-alert">
             <button type="button" class="close" data-dismiss="alert">x</button>
@@ -75,7 +76,7 @@
                                             <div class="col-12 col-md-6 mb-3">
                                                 <label for="academic_year" class="form-label">السنة الدراسية</label>
                                                 <select id="academic_year" name="academic_year" class="form-control"
-                                                    required  readonly >
+                                                    required    >
                                                     <option value="">اختر السنة الدراسية</option>
                                                     @php
                                                         $current_year = date("Y");
@@ -104,7 +105,7 @@
                                                 <label for="nationalitie_id"
                                                     class="form-label"><strong>الدولة</strong></label>
                                                 <select name="nationalitie_id" class="form-control" id="nationalitie_id"
-                                                    required readonly >
+                                                    required   >
                                                     <option value="" selected disabled>-- اختر الدولة --</option>
                                                     @foreach ($nationalities as $nationalitie)
                                                         <option value="{{$nationalitie->id}}" {{ old('nationalitie_id') == $nationalitie->id ? 'selected' : '' }}>
@@ -197,13 +198,13 @@
                                             </div>
                                         </div>
 
-                                        <div class="container mt-4">
+                                        <div class="  mt-4">
                                             <h3 class="mb-3 text-center">المرفقات إن وجدت</h3>
 
                                             <div class="mb-3">
                                                 <label for="photos" class="form-label">تحميل الصور</label>
                                                 <input type="file" id="photos" class="form-control" name="photos[]"
-                                                    multiple accept="image/*">
+                                                    multiple accept="image/*" readonly >
                                             </div>
 
                                         </div>

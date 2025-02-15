@@ -12,11 +12,11 @@ class AttendenceStudentRepository implements AttendenceStudentRepositoryInterfac
         $grades = Grade::with('sections')->get();
         return view('pages.attendenceStudent.section_attendenceStudent', compact('grades'));
     }
-   
+
     public function showAttendenceStudent()
     {
-        $attenceOle = AttendenceStudent::select('student_id','grade_id','class_id','attendence_date','attendence')->get();
-         
+        $attenceOle = AttendenceStudent::with(['student', 'grade', 'class'])->select('student_id', 'grade_id', 'class_id', 'attendence_date', 'attendence')->get();
+
         return view('pages.attendenceStudent.show_attendence_absent', compact('attenceOle'));
     }
 

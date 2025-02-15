@@ -44,7 +44,7 @@ class Student extends Model
      
      public function attendece()
      {
-         return $this->hasMany(AttendenceStudent::class );
+         return $this->hasMany(AttendenceStudent::class ,'student_id');
      }
      
      

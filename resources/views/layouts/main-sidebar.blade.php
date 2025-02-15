@@ -53,7 +53,7 @@
 					</svg><span class="side-menu__label"> قائمه المراحل الدرسيه </span><i
 						class="angle fe fe-chevron-down"></i></a>
 				<ul class="slide-menu">
-					<li><a  class="slide-item" href="{{route('page.index')}}"> المراحل الدرسيه</a></li>
+					<li><a class="slide-item" href="{{route('page.index')}}"> المراحل الدرسيه</a></li>
 
 				</ul>
 			</li>
@@ -67,7 +67,7 @@
 					</svg><span class="side-menu__label"> قائمه الصفوف الدوسيه</span><i
 						class="angle fe fe-chevron-down"></i></a>
 				<ul class="slide-menu">
-					<li><a  class="slide-item" href="{{ route('class.index')  }}">الصفوف الدرسيه</a></li>
+					<li><a class="slide-item" href="{{ route('class.index')  }}">الصفوف الدرسيه</a></li>
 				</ul>
 			</li>
 			<li class="slide">
@@ -85,7 +85,7 @@
 						<circle cx="17.5" cy="11.5" r="1.5" />
 					</svg><span class="side-menu__label"> الاقسام</span><i class="angle fe fe-chevron-down"></i></a>
 				<ul class="slide-menu">
-					<li><a  class="slide-item" href=" {{route('section.index')}}"> قائمة الاقسام
+					<li><a class="slide-item" href=" {{route('section.index')}}"> قائمة الاقسام
 							الدرسيه</a></li>
 
 				</ul>
@@ -108,11 +108,12 @@
 							xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24">
 
 
-						</svg><span class="side-menu__label"> <i class="fa-solid fa-graduation-cap"> الطلاب </i> </span>
+						</svg><span class="side-menu__label"> <i
+								class="fa-solid fa-graduation-cap font-weight-bold text-danger	 "> الطلاب </i> </span>
 					</a>
-					<li><a  class="slide-item text-secondary " href="{{ route('student.show') }}"> قائمة
+					<li><a class="slide-item text-secondary " href="{{ route('student.show') }}"> قائمة
 							الطلاب </a></li>
-					<li><a  class="slide-item text-secondary " href="{{ route('student.index') }}"> اضاقه
+					<li><a class="slide-item text-secondary " href="{{ route('student.index') }}"> اضاقه
 							الطلاب</a></li>
 
 
@@ -121,22 +122,24 @@
 				<ul class="slide-menu">
 					<a class="side-menu__item" data-toggle="slide" href="{{ url('/' . $page = '#') }}"><svg
 							xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24">
-						</svg><span class="side-menu__label"> <i class="fa-solid fa-school"> ترقيه الطلاب </i> </span>
+						</svg><span class="side-menu__label"> <i class="fa-solid fa-school text-danger "> ترقيه الطلاب
+							</i> </span>
 					</a>
 
-					<li><a  class="slide-item  " href="{{route('promotion.index')}}"> ترقيه الطلاب</a></li>
-					<li><a  class="slide-item  " href="{{route('promotion.create')}}"> اداره ترقيه
+					<li><a class="slide-item  " href="{{route('promotion.index')}}"> ترقيه الطلاب</a></li>
+					<li><a class="slide-item  " href="{{route('promotion.create')}}"> اداره ترقيه
 							الطلاب</a></li>
 				</ul>
 				<ul class="slide-menu">
 					<a class="side-menu__item" data-toggle="slide" href="{{ url('/' . $page = '#') }}"><svg
 							xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24">
-						</svg><span class="side-menu__label"> <i class="fa-solid fa-user-graduate"> الطلاب الخرجين </i>
+						</svg><span class="side-menu__label"> <i class="fa-solid fa-user-graduate text-danger "> الطلاب
+								الخرجين </i>
 						</span> </a>
 
-					<li><a  class="slide-item text-secondary " href="{{route('graduate.index')}}"> الطلاب
+					<li><a class="slide-item text-secondary " href="{{route('graduate.index')}}"> الطلاب
 							الخرجين </a></li>
-					<li><a  class="slide-item text-secondary " href="{{route('graduate.create')}}"> قائمة
+					<li><a class="slide-item text-secondary " href="{{route('graduate.create')}}"> قائمة
 							الطلاب الخرجين </a></li>
 
 				</ul>
@@ -170,10 +173,10 @@
 					</svg><span class="side-menu__label"> اولياء الامور </span><i
 						class="angle fe fe-chevron-down"></i></a>
 				<ul class="slide-menu">
-					<li><a  class="slide-item" href="{{route('parent_show.index')}}"> اولياء الامور </a>
+					<li><a class="slide-item" href="{{route('parent_show.index')}}"> اولياء الامور </a>
 					</li>
 					<li>
-						<a  class="slide-item" href="{{ route('parent.index') }}">قائمه ولي الأمر</a>
+						<a class="slide-item" href="{{ route('parent.index') }}">قائمه ولي الأمر</a>
 					</li>
 
 				</ul>
@@ -193,13 +196,13 @@
 				<ul class="slide-menu">
 					<li><a class="slide-item" href="{{route('fees.index') }}"> الرسوم الدرسيه </a></li>
 					<li><a class="slide-item" href="{{route('feesInvoice.index')}}"> الفوتير </a></li>
-					<li><a class="slide-item" href="{{route('receipt.index')}}"> سندات  قبض الطالب</a></li>
-					<li><a class="slide-item" href="{{route('paymentStudnet.index')}}"> سندات   صرف  </a></li>
+					<li><a class="slide-item" href="{{route('receipt.index')}}"> سندات قبض الطالب</a></li>
+					<li><a class="slide-item" href="{{route('paymentStudnet.index')}}"> سندات صرف </a></li>
 					<li><a class="slide-item" href="{{route('processfees.index')}}"> استبعاد رسوم </a></li>w
 				</ul>
 			</li>
-			 
-			 
+
+
 			<li class="slide">
 				<a class="side-menu__item" data-toggle="slide" href="{{ url('/' . $page = '#') }}"><svg
 						xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24">
@@ -209,10 +212,12 @@
 							opacity=".3" />
 						<path
 							d="M12 22c5.52 0 10-4.48 10-10 0-4.75-3.31-8.72-7.75-9.74l-.08-.04-.01.02C13.46 2.09 12.74 2 12 2 6.48 2 2 6.48 2 12s4.48 10 10 10zm0-2c-.38 0-.74-.04-1.1-.09L14.89 13l2.72 4.7C16.16 19.12 14.18 20 12 20zm8-8c0 1.85-.64 3.55-1.7 4.91l-4-6.91h5.43c.17.64.27 1.31.27 2zm-.59-3h-7.99l2.71-4.7c2.4.66 4.35 2.42 5.28 4.7zM12 4c.37 0 .74.03 1.1.08L10.27 9l-1.15 2L6.4 6.3C7.84 4.88 9.82 4 12 4zm-8 8c0-1.85.64-3.55 1.7-4.91L8.54 12l1.15 2H4.26C4.1 13.36 4 12.69 4 12zm6.27 3h2.3l-2.71 4.7c-2.4-.67-4.35-2.42-5.28-4.7h5.69z" />
-					</svg><span class="side-menu__label">الحضور والغياب </span><i class="angle fe fe-chevron-down"></i></a>
+					</svg><span class="side-menu__label">الحضور والغياب </span><i
+						class="angle fe fe-chevron-down"></i></a>
 				<ul class="slide-menu">
-				<li><a class="slide-item" href="{{ route('attendence.index') }}">   الحضور والغياب للطلاب </a></li>
-				<li><a class="slide-item" href="{{ route('attendence.showAttendenceStudent') }}"> قائمة الحضور والغياب للطلاب </a></li>
+					<li><a class="slide-item" href="{{ route('attendence.index') }}"> الحضور والغياب للطلاب </a></li>
+					<li><a class="slide-item" href="{{ route('attendence.showAttendenceStudent') }}"> قائمة الحضور
+							والغياب للطلاب </a></li>
 				</ul>
 			</li>
 			<li class="slide">
@@ -222,10 +227,12 @@
 						<path d="M6 20h12V10H6v10zm6-7c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2z" opacity=".3" />
 						<path
 							d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z" />
-					</svg><span class="side-menu__label"> المواد الدراسية  </span><i class="angle fe fe-chevron-down"></i></a>
+					</svg><span class="side-menu__label"> المواد الدراسية </span><i
+						class="angle fe fe-chevron-down"></i></a>
 				<ul class="slide-menu">
-					<li><a class="slide-item" href="{{  route('subjectStudent.index')}}"> قائمة المواد الدراسية  </a></li>
-				 
+					<li><a class="slide-item" href="{{  route('subjectStudent.index')}}"> قائمة المواد الدراسية </a>
+					</li>
+
 				</ul>
 			</li>
 			<li class="slide ">
@@ -237,14 +244,48 @@
 							opacity=".3" />
 						<path
 							d="M20 13H4c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h16c.55 0 1-.45 1-1v-6c0-.55-.45-1-1-1zm-1 6H5v-4h14v4zm-12-.5c.83 0 1.5-.67 1.5-1.5s-.67-1.5-1.5-1.5-1.5.67-1.5 1.5.67 1.5 1.5 1.5zM20 3H4c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h16c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1zm-1 6H5V5h14v4zM7 8.5c.83 0 1.5-.67 1.5-1.5S7.83 5.5 7 5.5 5.5 6.17 5.5 7 6.17 8.5 7 8.5z" />
-					</svg><span class="side-menu__label">    الاختبارات </span><i class="angle fe fe-chevron-down"></i></a>
-					<ul class="slide-menu">
-						<li><a class="slide-item" href=" {{route('quizze.index')}} "> قائمة   الاختبارات    </a></li>
-						<li><a class="slide-item" href=" {{route('question.index')}} "> قائمة   الاسئله    </a></li>
-						
-						<li><a class="slide-item" href=" {{route('exams.index')}} ">  test  </a></li>
-					</ul>
+					</svg><span class="side-menu__label"> الاختبارات </span><i class="angle fe fe-chevron-down"></i></a>
+				<ul class="slide-menu">
+					<li><a class="slide-item" href=" {{route('quizze.index')}} "> قائمة الاختبارات </a></li>
+					<li><a class="slide-item" href=" {{route('question.index')}} "> قائمة الاسئله </a></li>
+
+					<li><a class="slide-item" href=" {{route('exams.index')}} "> test </a></li>
+				</ul>
 			</li>
+
+
+			<li class="slide">
+				<a class="side-menu__item" data-toggle="slide" href="{{ url('/' . $page = '#') }}"><svg
+						xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24">
+						<path d="M0 0h24v24H0V0z" fill="none" />
+						<path d="M6 20h12V10H6v10zm6-7c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2z" opacity=".3" />
+						<path
+							d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z" />
+					</svg><span class="side-menu__label"> حصص اونلاين </span><i
+						class="angle fe fe-chevron-down"></i></a>
+				<ul class="slide-menu">
+					<li><a class="slide-item" href="{{ route('onlineClasses.index') }}"> دروس اونلاين </a></li>
+					<!-- <li><a class="slide-item" href="">  اتصال مباشر مع زوم </a></li> -->
+
+				</ul>
+			</li>
+
+			<li class="slide ">
+				<a class="side-menu__item" data-toggle="slide" href="{{ url('/' . $page = '#') }}"><svg
+						xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24">
+						<path d="M0 0h24v24H0V0z" fill="none" />
+						<path
+							d="M5 9h14V5H5v4zm2-3.5c.83 0 1.5.67 1.5 1.5S7.83 8.5 7 8.5 5.5 7.83 5.5 7 6.17 5.5 7 5.5zM5 19h14v-4H5v4zm2-3.5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5.67-1.5 1.5-1.5z"
+							opacity=".3" />
+						<path
+							d="M20 13H4c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h16c.55 0 1-.45 1-1v-6c0-.55-.45-1-1-1zm-1 6H5v-4h14v4zm-12-.5c.83 0 1.5-.67 1.5-1.5s-.67-1.5-1.5-1.5-1.5.67-1.5 1.5.67 1.5 1.5 1.5zM20 3H4c-.55 0-1 .45-1 1v6c0 .55.45 1 1 1h16c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1zm-1 6H5V5h14v4zM7 8.5c.83 0 1.5-.67 1.5-1.5S7.83 5.5 7 5.5 5.5 6.17 5.5 7 6.17 8.5 7 8.5z" />
+					</svg><span class="side-menu__label"> المكتبه </span><i class="angle fe fe-chevron-down"></i></a>
+				<ul class="slide-menu">
+					<li><a class="slide-item" href=" {{ route('library.index') }} "> قائمة الكتب </a></li>
+
+				</ul>
+			</li>
+
 		</ul>
 	</div>
 </aside>

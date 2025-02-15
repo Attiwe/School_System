@@ -72,8 +72,8 @@ class ReceiptRepository implements ReceiptRepositoryInterface
             $studnetAccount->save();
 
             DB::commit();
-            toastr()->message('تم ');
-            return redirect()->back()->with('success', 'تم إضافة السند بنجاح.');
+            toastr()->success('تم إضافة السند بنجاح.');
+            return redirect()->back();
 
         } catch (\Exception $e) {
             DB::rollBack();

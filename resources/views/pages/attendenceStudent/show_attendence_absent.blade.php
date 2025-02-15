@@ -67,23 +67,32 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($attenceOle as $attence )
-                            <tr>
-                                <td class="text-primary" > {{$loop->iteration}}</td>
-                                <td class="text-primary" > {{ $attence->student->name }} </td>
-                                <td class="text-success" > {{ $attence->grade->name }} </td>
-                                <td class="text-success" > {{ $attence->class->nameClass }} </td>
-                                <td class="text-primary" > {{ $attence->student->academic_year }} </td>
-                                <td class="text-danger" > {{ $attence->attendence_date }} </td>
-                                <td class="text-primary">
-                                {!! $attence->attendence 
-                                    ? '<span class="text-primary ">حضور</span>' 
-                                    : '<span class="text-danger">غياب</span>' !!}
+                        @foreach ($attenceOle as $attence)
+                        <tr>
+                            <td class="text-primary">{{ $loop->iteration }}</td>
+
+                            <td class="text-primary">
+                                {!! optional($attence->student)->name ?: '<span class="text-danger">تم حذفه</span>' !!}
                             </td>
 
-                                
-                            </tr>
-                                @endforeach
+                            <td class="text-success">{{ optional($attence->grade)->name ?: '<span class="text-danger">تم حذفه</span>' }}</td>
+
+                            <td class="text-success">{{ optional($attence->class)->nameClass ?: '<span class="text-danger">تم حذفه</span>' }}</td>
+
+                            <td class="text-primary">
+                                {!! optional($attence->student)->academic_year ?: '<span class="text-danger">تم حذفه</span>' !!}
+                            </td>
+
+                            <td class="text-danger">{{ $attence->attendence_date }}</td>
+
+                            <td class="text-primary">
+                                {!! $attence->attendence
+                                    ? '<span class="text-primary">حضور</span>' 
+                                    : '<span class="text-danger">غياب</span>' !!}
+                            </td>
+                        </tr>
+                    @endforeach
+
                         </tbody>
                     </table>
                 </div>

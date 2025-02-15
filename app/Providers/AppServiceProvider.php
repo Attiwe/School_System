@@ -14,6 +14,10 @@ use App\Repositories\FeesRepository;
 use App\Repositories\FeesRepositoryInterface;
 use App\Repositories\GraduateRepository;
 use App\Repositories\GraduateRepositoryInterface;
+use App\Repositories\LibraryRepository;
+use App\Repositories\LibraryRepositoryInterface;
+use App\Repositories\OnlineClassesRepository;
+use App\Repositories\OnlineClassesRepositoryInterface;
 use App\Repositories\PaymentStudentRepository;
 use App\Repositories\PaymentStudentRepositoryInterface;
 use App\Repositories\ProcessingFeesRepository;
@@ -54,6 +58,8 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(ExamsRepositoryInterface::class, ExamsRepository::class);
         $this->app->bind(QuizzeRepositoryInterface::class, QuizzeRepository::class);
         $this->app->bind(QuestionsRepositoryInterface::class, QuestionsRepository::class);
+        $this->app->bind(OnlineClassesRepositoryInterface::class, OnlineClassesRepository::class);
+        $this->app->bind(LibraryRepositoryInterface::class, LibraryRepository::class);
  
      }
 

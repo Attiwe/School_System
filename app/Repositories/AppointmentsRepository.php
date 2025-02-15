@@ -23,7 +23,7 @@ class AppointmentsRepository implements AppointmentsRepositoryInterface{
           $data['specialization_id']= $data['Specialization_id'] ;
          $data['joining_Date']= $data['joining_date'] ;
          Appointments::create($data);
-        // toastr()->success('تمت الاضافه');
+        toastr()->success('تمت الاضافه');
         return redirect()-> route('appointments.index');
        } catch (\Exception $e) {
          return redirect()->back()->withErrors(['error' => $e->getMessage()]);

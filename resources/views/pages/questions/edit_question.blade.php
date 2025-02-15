@@ -37,7 +37,7 @@
                             <div class="table-responsive">
                                 <form action=" {{route('question.update','test')}} " method="POST" autocomplete="off">
                                     @csrf
-                                    @method('PUT')
+                                     @method('PUT')
                                     <div class="row">
                                         <div class="col-12 col-md-12 mb-3">
                                             <input type="hidden" name="id" value="{{ $Question->id }}" >

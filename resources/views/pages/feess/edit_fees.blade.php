@@ -23,8 +23,11 @@
         {{ session('success') }}
     </div>
 @endif
-
- 
+@if (session('error'))
+    <div class="alert alert-danger">
+        {{ session('error') }}
+    </div>
+@endif
 <div class="row row-sm">  
     <div class="col-xl-12">
         <div class="card mt-5">

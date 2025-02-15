@@ -8,7 +8,9 @@ use App\Http\Controllers\FeesController;
 use App\Http\Controllers\FeesInvoiceController;
 use App\Http\Controllers\GradeController;
 use App\Http\Controllers\GraduateController;
+use App\Http\Controllers\LibraryController;
 use App\Http\Controllers\MyParentsController;
+use App\Http\Controllers\OnlineClassesController;
 use App\Http\Controllers\PaymentStudentController;
 use App\Http\Controllers\ProcessingFeesController;
 use App\Http\Controllers\ProfileController;
@@ -184,7 +186,7 @@ Route::controller(SubjectStudentController::class)->middleware('auth')->prefix('
     Route::delete('/delete/{delete}', 'destroy')->name('subjectStudent.delete');
 });
 
-     // replace exams with me Quizze
+// replace exams with me Quizze
 Route::controller(ExamsController::class)->middleware('auth')->prefix('Exams')->group(function () {
     Route::get('/', 'index')->name('exams.index');
     Route::get('/create', 'create')->name('exams.create');
@@ -210,4 +212,22 @@ Route::controller(QuestionsController::class)->middleware('auth')->prefix('quest
     Route::get('/edit/{edit}', 'edit')->name('question.edit');
     Route::put('/update/{id}', 'update')->name('question.update');
     Route::delete('/delete/{delete}', 'destroy')->name('question.delete');
+});
+
+Route::controller(OnlineClassesController::class)->middleware('auth')->prefix('onlineClasses')->group(function () {
+    Route::get('/', 'index')->name('onlineClasses.index');
+    Route::get('/create', 'create')->name('onlineClasses.create');
+    Route::post('/store', 'store')->name('onlineClasses.store');
+    Route::delete('/delete/{delete}', 'destroy')->name('onlineClasses.delete');
+});
+
+Route::controller(LibraryController::class)->middleware('auth')->prefix('library')->group(function () {
+
+    Route::get('/', 'index')->name('library.index');
+    Route::get('/create', 'create')->name('library.create');
+    Route::post('/store', 'store')->name('library.store');
+    Route::get('/download/{file_name}', 'download')->name('library.download');
+    
+  
+
 });

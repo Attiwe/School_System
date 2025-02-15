@@ -80,10 +80,10 @@
                             @foreach ($feesInvoice as $fees)
                                 <tr class="  font-weight-bold">
                                     <td> {{$loop->iteration}}</td>
-                                    <td class="  text-center text-primary"> {{$fees->student->name}} </td>
+                                    <td class="  text-center text-primary"> {{ optional( $fees->student ) ->name ?: 'تم خذفه' }} </td>
                                     <td class="  text-center text-primary"> {{$fees->grade->name}} </td>
-                                    <td class=" text-center text-primary"> {{$fees->class->nameClass}} </td>
-                                    <td class=" text-center text-success"> {{$fees->fees->title}} </td>
+                                    <td class=" text-center text-primary"> {{  $fees->class->nameClass}} </td>
+                                    <td class=" text-center text-success"> {{ optional( $fees->fees )->title ?: 'تم  حذف الفتوره' }} </td>
                                     <td class=" text-center text-danger"> {{$fees->amount}} </td>
                                     <td class=" text-center text-success "> {{$fees->fees->year}} </td>
 
@@ -113,7 +113,7 @@
                                                     @method('DELETE')
                                                     <h3>هل انت متاكد من عملية الحذف ؟</h3><br>
                                                     <input type="hidden" name="id" value="{{$fees->id}}" id="id">
-                                                    <input class="form-control" name="name" value="{{$fees->student->name}}"
+                                                    <input class="form-control" name="name" value=" {{ optional( $fees->student ) ->name ?: 'تم خذفه' }} "
                                                         type="text" readonly>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-primary" data-dismiss="modal">

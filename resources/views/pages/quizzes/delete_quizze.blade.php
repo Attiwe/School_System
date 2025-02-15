@@ -15,7 +15,7 @@
                     <h3>هل انت متاكد من عملية الحذف ؟</h3><br>
                     <input type="hidden" name="id" value="{{$quizze->id}}" id="id">
                     <input class="form-control" name="name" value="{{$quizze->nameQuizze}}" type="text" readonly>
-                    <input class="form-control" name="name" value=" {{$quizze->teacher->name}}  " type="text" readonly>
+                    <input class="form-control" name="name" value=" {{ optional( $quizze->teacher )->name ?: ' غير معرف'}}  " type="text" readonly>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal">
                             اغلاق </button>

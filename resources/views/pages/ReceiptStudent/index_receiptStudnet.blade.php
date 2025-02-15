@@ -73,7 +73,7 @@
                             @foreach ($receipts as $receipt)
                             <tr class="  font-weight-bold">
                                 <td>  {{$loop->iteration}} </td>
-                                <td class="text-primary" >  {{$receipt->student->name}} </td>
+                                <td class="text-primary" >  {{optional($receipt->student)->name ?: ' تم حذفه'}} </td>
                                 <td class="text-danger" >  {{$receipt->debit}} جنيه </td>
                                 <td class="text-primary" >  {{$receipt->desc}} </td>
                                 <td class="text-primary">  {{$receipt->date}} </td>
