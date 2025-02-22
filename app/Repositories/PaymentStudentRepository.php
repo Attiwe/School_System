@@ -13,7 +13,7 @@ class PaymentStudentRepository implements PaymentStudentRepositoryInterface
 {
     public function index()
     {
-        $paymaentStudent = PaymentStudent::latest()->get();
+        $paymaentStudent = PaymentStudent::select('id','student_id','date','amount','desc')-> latest()->get();
         return view('pages.paymebtStudent.index_paymentStudent', compact('paymaentStudent'));
     }
     public function show($request)

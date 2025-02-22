@@ -11,6 +11,9 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+     
+     
+
     public function index($id)
     {
         if(view()->exists($id)){

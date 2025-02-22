@@ -15,7 +15,7 @@ class FeesInvoiceRepository implements FeesInvoiceRepositoryInterface
     {
         try {
 
-            $feesInvoice = FeesInvoice::latest()->get();
+            $feesInvoice = FeesInvoice::select('student_id','grade_id','class_id','fees_id','invoice_date','amount','desc','id')->latest()->get();
             return view('pages.feesInvoices.index_invoice', compact('feesInvoice'));
         } catch (\Exception $e) {
             toastr()->error('حدث خطأ أثناء تحميل بيانات الطالب:')->$e->getMessage;

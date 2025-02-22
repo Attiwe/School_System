@@ -62,7 +62,7 @@
                             @foreach ($paymaentStudent as $payment)
                                 <tr class="  font-weight-bold">
                                     <td> {{$loop->iteration}}</td>
-                                    <td class=" text-primary"> {{$payment->student->name}} </td>
+                                    <td class=" text-primary"> {{ optional($payment->student)->name ?: 'dfsa'}} </td>
                                     <td class=" text-danger"> {{$payment->amount}} </td>
                                     <td class=" text-primary"> {{$payment->date}} </td>
                                     <td class=" text-success "> {{$payment->desc}} </td>

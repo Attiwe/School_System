@@ -16,7 +16,7 @@
                     @method('DELETE')
                     <h3>هل انت متاكد من عملية الحذف ؟</h3><br>
                     <input type="hidden" name="id" value="{{$payment->id}}" id="id">
-                    <input class="form-control" name="name" value="{{$payment->student->name}}" type="text" readonly>
+                    <input class="form-control" name="name" value="{{$payment->student->name ?? 'sdf'}}" type="text" readonly>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" data-dismiss="modal">
                             اغلاق </button>

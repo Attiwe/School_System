@@ -10,7 +10,7 @@ class GraduateRepository implements GraduateRepositoryInterface
 
     public function getStudentGraduate()
     {
-        $Grades = Grade::all();
+        $Grades = Grade::select('id','name','notes')->get();
         return view('pages.graduates.graduate_student', compact('Grades'));
     }
     public function sofetDelete($request)

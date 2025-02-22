@@ -6,6 +6,7 @@ use App\Models\Appointments;
 use App\Models\Fees;
 use App\Models\MyParents;
 use App\Models\Sections;
+use App\Models\Settings;
 use App\Models\Student;
 use App\Models\Teacher;
 use App\Models\User;
@@ -19,21 +20,22 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        //   Student::factory(50)->create();
-        //  Fees::factory(50)->create();
+        // Student::factory(50)->create();
+        // Fees::factory(50)->create();
         // Appointments::factory(10)->create();
-        //  Teacher::factory(10)->create();
+        // Teacher::factory(10)->create();
         // MyParents::factory(10)->create();
-        //   Sections::factory(30)->create();
+        // Sections::factory(30)->create();
 
 
-        //   $this->call(TypeBloods::class);
-        //   $this->call(Nationalities::class);
-        //   $this->call(ReligionsSeeder::class);
-        //   $this->call(Adnim::class);
-        //   $this->call(SpecializationsSeeder::class);
-        //    $this->call(GradeSeeder::class);
-        //      $this->call(ClassSeeder::class);
-        //       $this->call(ParentSeeder::class);
+        // $this->call(TypeBloods::class);
+        // $this->call(Nationalities::class);
+        // $this->call(ReligionsSeeder::class);
+        // $this->call(Adnim::class);
+        // $this->call(SpecializationsSeeder::class);
+        // $this->call(GradeSeeder::class);
+        // $this->call(ClassSeeder::class);
+        // $this->call(ParentSeeder::class);
+         $this->call(SettingSeeder::class);
     }
 }

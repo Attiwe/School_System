@@ -15,7 +15,7 @@ class ProcessingFeesRepository implements ProcessingFeesRepositoryInterface
 {
     public function index()
     {
-        $processingFees = ProcessingFees::latest()->get();
+        $processingFees = ProcessingFees::select('id','student_id','date','amount','desc')->latest()->get();
         return view('pages.processingFeess.index_processingFees', compact('processingFees'));
     }
     public function show($request)

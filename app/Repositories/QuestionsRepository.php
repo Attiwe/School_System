@@ -10,7 +10,7 @@ class QuestionsRepository implements QuestionsRepositoryInterface
     public function index()
     {
 
-        $questions = Questions::latest()->get();
+        $questions = Questions::select('id','quizze_id','title','answer','right_answer','score')->latest()->get();
         return view('pages.questions.index_question', compact('questions'));
     }
     public function create()

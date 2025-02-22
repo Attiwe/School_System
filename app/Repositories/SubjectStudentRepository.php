@@ -9,7 +9,7 @@ class SubjectStudentRepository implements SubjectStudentRepositoryInterface
 {
     public function index()
     {
-        $subjects = SubjectStudent::latest()->get();
+        $subjects = SubjectStudent::select('id','teacher_id','grade_id','class_id','nameSubject')->latest()->get();
         return view('pages.subjectStudent.index_subjectStudent', compact('subjects'));
     }
     public function create()

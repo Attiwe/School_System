@@ -13,7 +13,7 @@ class OnlineClassesRepository implements OnlineClassesRepositoryInterface
     use MeetingZoomTrait;
     public function index()
     {
-        $online = OnlineClasses::latest()->get();
+        $online = OnlineClasses::select('id','grade_id','class_id','section_id','user_id','meting_id','topic','start_at','duration' ,'join_url')->latest()->get();
         return view('pages.onlineClasses.index_onlineClass', compact('online'));
     }
     public function create()

@@ -13,7 +13,7 @@ class PromotionStudentRepository implements PromotionStudentRepositoriesInterfac
 
     public function getAllPromotion()
     {
-        $Grades = Grade::all();
+        $Grades = Grade::select('name','id')->get();
         return view('pages.promotions.promotions', compact('Grades'));
     }
     public function storagPromotion($request)

@@ -33,7 +33,8 @@ class StudentRequest extends FormRequest
         'parents_id'=>'nullable',
         'nationalitie_id'=>'nullable',
         'blood_id'=>'nullable',
-        'password' => 'required|min:6|max:50',   
+        // 'password' => 'required|min:6|max:50',   
+        'password' => 'required',   
     ];
 } 
 

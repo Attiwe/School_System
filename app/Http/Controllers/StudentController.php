@@ -15,6 +15,14 @@ class StudentController extends Controller
      {
           $this->Student = $student;
      }
+
+
+     public function dashboard()
+     {
+          return view('pages.students.dashboard_student');
+     }
+
+     
      public function index()
      {
           return $this->Student->createStudent();

@@ -8,7 +8,7 @@ class ExamsRepository implements ExamsRepositoryInterface
 
     public function index()
     {
-        $exams = Exams::latest()->get();
+        $exams = Exams::select('nameExams','term','acadamic_year','id')->latest()->get();
         return view('pages.exams.index_exams', compact('exams'));
     }
     public function create()

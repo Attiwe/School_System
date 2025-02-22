@@ -29,7 +29,7 @@ class FeesRepository implements FeesRepositoryInterface
             $data = $request->validated();
             Fees::create($data);
 
-            session()->flash('success', 'تم حفظ البيانات بنجاح');
+            toastr()->success(  'تم حفظ البيانات بنجاح');
 
             return redirect()->route('fees.index');
         } catch (\Exception $e) {

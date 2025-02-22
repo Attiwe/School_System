@@ -30,36 +30,22 @@ class LibraryController extends Controller
          return $this->Library->store($request);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Library $library)
+    public function edit(Request $request)
     {
-        //
+        return $this->Library->edit($request);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Library $library)
+    public function update(Request $request )
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Library $library)
-    {
-        //
+        return $this->Library->update($request);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Library $library)
+    public function destroy(Request $request)
     {
-        //
+         return $this->Library->destroy($request);
     }
     public function download($request){
        return $this->Library->download($request);

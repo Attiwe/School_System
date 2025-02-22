@@ -3,6 +3,7 @@ namespace App\Repositories;
 
 use App\Models\ClassRoms;
 use App\Models\Grade;
+use Hash;
 use Illuminate\Support\Facades\DB;
 use App\Models\MyParents;
 use App\Models\Nationalities;
@@ -17,7 +18,7 @@ class StudentRepositories implements StudentRepositoryInterface
     public $catchError;
     public function showStudent()
     {
-        $students = Student::query()->latest()->get();
+        $students = Student::select('id','grade_id','class_id','section_id','nationalitie_id','blood_id','parents_id' ,'email','gender','date_birth','academic_year','name',)->latest()->get();
         return view('pages.students.index_student', compact('students'));
     }
     public function createStudent()
@@ -39,7 +40,6 @@ class StudentRepositories implements StudentRepositoryInterface
             $student = new Student();
             $student->name = $request->name;
             $student->email = $request->email;
-            $student->password = $request->password;
             $student->academic_year = $request->academic_year;
             $student->date_birth = $request->date_birth;
             $student->nationalitie_id = $request->nationalitie_id;
@@ -49,6 +49,7 @@ class StudentRepositories implements StudentRepositoryInterface
             $student->class_id = $request->class_id;
             $student->section_id = $request->section_id;
             $student->parents_id = $request->parents_id;
+            $student->password = Hash::make($request->password);
             $student->save();
 
 

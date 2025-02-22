@@ -2,17 +2,16 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\MorphMany;
+ use Illuminate\Database\Eloquent\Factories\HasFactory;
+ use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Student extends Model
+class Student  extends Authenticatable
 {
      use SoftDeletes;
      use HasFactory;
      protected $fillable = ['grade_id','class_id','section_id','nationalitie_id','blood_id','parents_id' ,'email','gender','date_birth','academic_year','name','password'];
-
 
      public function images(): MorphMany
      {

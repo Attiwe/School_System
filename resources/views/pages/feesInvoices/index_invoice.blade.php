@@ -86,9 +86,7 @@
                                     <td class=" text-center text-success"> {{ optional( $fees->fees )->title ?: 'تم  حذف الفتوره' }} </td>
                                     <td class=" text-center text-danger"> {{$fees->amount}} </td>
                                     <td class=" text-center text-success "> {{$fees->fees->year}} </td>
-
                                     <td class=" text-center text-danger "> {{$fees->invoice_date}} </td>
-
                                     <td class=" text-center text-primary "> {{$fees->desc ?? 'لاتوجد ملاحظات'}} </td>
                                     <td class=" text-center text-primary">
                                         <button type="button" class="btn btn-sm  btn-danger" data-toggle="modal"

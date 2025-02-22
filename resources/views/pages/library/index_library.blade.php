@@ -62,25 +62,37 @@
                                 @foreach ($librarys as $library)
                                     <tr>
                                         <td> {{ $loop->iteration }}</td>
-                                        <td class="text-primary"> {{$library->grade->name }} </td>
+                                        <td class="text-info"> {{$library->grade->name }} </td>
                                         <td class="text-primary"> {{$library->class->nameClass }} </td>
-                                        <td class="text-primary"> {{$library->section->nameSectian }} </td> 
+                                         <td class="text-primary"> {{$library->section->nameSectian }} </td> 
                                         <td class="text-primary"> {{$library->nameBook }} </td>
-                                        <td> 
+                                        <td class="d-flex align-items-center gap-2">
                                         @php
-                                        $files = json_decode($library->file_name, true);  
-                                    @endphp
+                                            $files = json_decode($library->file_name, true);  
+                                        @endphp
 
-                                    @if (!empty($files) && is_array($files))
-                                        @foreach ($files as $file)
-                                            <a href="{{ route('library.download', ['file_name' => basename($file)]) }}" target="_blank">   <i class="fa-solid fa-download text-danger "></i> {{ $library->nameBook }} </a> <br>
-                                        @endforeach
-                                    @else
-                                        <span class="text-danger">لا توجد ملفات</span>
-                                    @endif
+                                        @if (!empty($files) && is_array($files))
+                                            @foreach ($files as $file)
+                                                <a href="{{ route('library.download', ['file_name' => basename($file)]) }}" target="_blank" class="text-warning d-inline-block">
+                                                    <i class="fa-solid fa-download"></i> {{ $library->nameBook }}
+                                                </a>
+                                            @endforeach
+                                        @else
+                                            <span class="text-danger d-inline-block">لا توجد ملفات</span>
+                                        @endif
+                                        <span class="text-muted pl-2 ">  </span> 
+
+                                        <a href="{{ route('library.edit',$library->id) }}" type="button" class="btn btn-sm btn-primary"> التعديل </a>
+                                        <span class="text-muted pl-2 ">  </span> 
+
+                                        <button type="button" class="btn btn-sm btn-danger pl-2 " data-toggle="modal" data-target="#exampleModal{{$library->id}}">
+                                            الحذف
+                                        </button>
                                     </td>
 
-                                    </tr>
+
+                                    <!-- Modal Delete -->
+                                     @include('pages.library.delete_library')
                                 @endforeach      
                             </tbody>
                         </table>

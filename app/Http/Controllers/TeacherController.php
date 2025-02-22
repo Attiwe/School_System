@@ -14,6 +14,13 @@ class TeacherController extends Controller
         $this->Teacher = $Teacher;
     }
 
+    
+    public function dashboard()
+    {
+         return view('pages.teachers.dashboard_teacher' );
+    }
+
+
     public function index()
     {
        $teachers = $this->Teacher->getAllTeachers();

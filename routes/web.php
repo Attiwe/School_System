@@ -8,6 +8,8 @@ use App\Http\Controllers\FeesController;
 use App\Http\Controllers\FeesInvoiceController;
 use App\Http\Controllers\GradeController;
 use App\Http\Controllers\GraduateController;
+use App\Http\Controllers\AuthenticatedController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LibraryController;
 use App\Http\Controllers\MyParentsController;
 use App\Http\Controllers\OnlineClassesController;
@@ -19,6 +21,7 @@ use App\Http\Controllers\QuestionsController;
 use App\Http\Controllers\QuizzeController;
 use App\Http\Controllers\ReceiptStudentController;
 use App\Http\Controllers\SectionsController;
+use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SubjectStudentController;
 use App\Http\Controllers\TeacherController;
@@ -26,17 +29,38 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/', function () {
-    return view('index');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::controller(AuthenticatedController::class)->group(function () {
+
+    Route::get('/', 'index')->name('selection');
+    Route::get('/login/{type}', 'loginForm')->name('login.show')->middleware('guest');
+    Route::post('login', 'login') ->name('login')->middleware('guest');
+    Route::post('logout/{type}', 'logout')->name('logout');
+
+});
+
+Route::controller(HomeController::class) ->group(function () {
+
+    Route::get('/dashboard', 'index')->name('dashboard');
+});
+
+
+
+
+
+// Route::get('/dashboard', function() { 
+//     return view('index');
+// })->name('dashboard');
+
+
+//============================Route Breze=====================================================
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-
-require __DIR__ . '/auth.php';
+//  require __DIR__ . '/auth.php';
+// =============================================================================================
 
 Route::controller(GradeController::class)->middleware('auth')->group(function () {
 
@@ -66,15 +90,21 @@ Route::controller(SectionsController::class)->middleware('auth')->group(function
 });
 
 Route::controller(MyParentsController::class)->middleware('auth')->group(function () {
+
     Route::get('parent/index', 'index')->name('parent_show.index');
     Route::PUT('parent/{update}', 'update')->name('parent.update');
     Route::delete('parent/destroy', 'destroy')->name('parent.destroy');
 });
 
+require __DIR__ . '/parent.php';
+
+
 // ================== route livewire ==========================
 Route::middleware('auth')->group(function () {
     Route::view('add_parent', 'livewire.show_add_parent')->name('parent.index');
 });
+
+
 
 Route::controller(TeacherController::class)->middleware('auth')->prefix('teacher')->group(function () {
     Route::get('/', 'index')->name('teacher.index');
@@ -85,6 +115,10 @@ Route::controller(TeacherController::class)->middleware('auth')->prefix('teacher
     Route::delete('/destroy/{id}', 'destroy')->name('teacher.destroy');
 });
 
+
+require __DIR__ . '/teacher.php';
+
+
 Route::controller(AppointmentsController::class)->middleware('auth')->prefix('appointments')->group(function () {
     Route::get('/', 'index')->name('appointments.index');
     Route::get('/create', 'create')->name('appointments.create');
@@ -94,7 +128,11 @@ Route::controller(AppointmentsController::class)->middleware('auth')->prefix('ap
     Route::delete('/destroy/{id}', 'destroy')->name('appointments.destroy');
 });
 
-Route::controller(StudentController::class)->middleware('auth')->prefix('student')->group(function () {
+
+
+Route::controller(StudentController::class) ->prefix('student')->group(function () {
+
+
     Route::get('/', 'index')->name('student.index');
     Route::post('/store', 'store')->name('student.store');
     Route::get('/show_student', 'show')->name('student.show');
@@ -108,6 +146,10 @@ Route::controller(StudentController::class)->middleware('auth')->prefix('student
     Route::get('/class/{grade_id}', 'getClass'); // Ajax for classes
     Route::get('/section/{class_id}', 'getSection'); // Ajax for sections
 });
+
+require __DIR__ . '/student.php';
+
+
 
 Route::controller(PromotionController::class)->middleware('auth')->prefix('promotion')->group(function () {
 
@@ -226,8 +268,15 @@ Route::controller(LibraryController::class)->middleware('auth')->prefix('library
     Route::get('/', 'index')->name('library.index');
     Route::get('/create', 'create')->name('library.create');
     Route::post('/store', 'store')->name('library.store');
+    Route::get('/edit/{edit}', 'edit')->name('library.edit');
+    Route::put('/update/{id}', 'update')->name('library.update');
     Route::get('/download/{file_name}', 'download')->name('library.download');
-    
-  
+    Route::delete('/delete/{delete}', 'destroy')->name('library.delete');
+});
+
+Route::controller(SettingsController::class)->middleware('auth')->prefix('setting')->group(function () {
+    Route::get('/', 'index')->name('setting.index');
+    Route::put('/update/{id}', 'update')->name('setting.update');
+
 
 });
